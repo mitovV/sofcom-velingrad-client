@@ -9,19 +9,16 @@ import './ProductList.css'
 export default function ProductList() {
     const { id } = useParams()
     const [products, setProducts] = useState([])
-    const [category, setCategoryName] = useState({})
+    const [category, setCategory] = useState({})
 
     useEffect(() => {
         productsService.getAllByCategoryId(id)
-            .then(res => {
-                setProducts(res)
-            }
-            )
+            .then(setProducts)
     }, id)
 
     useEffect(() => {
         categoriesService.getById(id)
-            .then(setCategoryName)
+            .then(setCategory)
 
     }, id)
 

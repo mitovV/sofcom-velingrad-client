@@ -1,6 +1,5 @@
 import { Container, Row, Col } from 'react-bootstrap'
 import { Routes, Route } from 'react-router-dom'
-import { Suspense } from 'react'
 
 import Header from './components/Header/Header'
 import Sidebar from './components/Sidebar/Sidebar'
@@ -18,9 +17,7 @@ function App() {
         <Container fluid>
           <Row>
             <Col xs={2} id="sidebar-wrapper">
-              <Suspense fallback={ <h1>Loading...</h1>}>
               <Sidebar />
-              </Suspense>
             </Col>
             <Col xs={10} id="page-content-wrapper">
               <Routes>
