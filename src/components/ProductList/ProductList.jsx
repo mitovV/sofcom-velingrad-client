@@ -14,13 +14,10 @@ export default function ProductList() {
     useEffect(() => {
         productsService.getAllByCategoryId(id)
             .then(setProducts)
-    }, id)
 
-    useEffect(() => {
         categoriesService.getById(id)
             .then(setCategory)
-
-    }, id)
+    }, [id])
 
     if (products.length > 0) {
         return (
