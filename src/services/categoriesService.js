@@ -1,10 +1,12 @@
-const baseUrl = 'http://localhost:5000/api/categories/'
+import config from "../config/config"
 
 export const getAll = async () => {
-    let url = baseUrl + '/all'
+    let url = config.BASE_SERVER_URL + 'categories/all'
+
     try {
         const response = await fetch(url)
         let data = await response.json()
+        
         return data
     } catch (message) {
         return console.error(message)

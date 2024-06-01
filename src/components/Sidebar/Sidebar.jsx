@@ -15,7 +15,7 @@ export default function Sidebar() {
 
     const renderCategory = (category, parentId) => {
         const uniqueId = parentId ? `${parentId}-${category._id}` : `${category._id}`
-        console.log(uniqueId);
+
         if (category.subCategories && category.subCategories.length > 0) {
             return (
                 <NavDropdown key={uniqueId} title={category.name} id={`nav-dropdown-${uniqueId}`}>
@@ -24,7 +24,7 @@ export default function Sidebar() {
             )
         }
         else {
-            return (<Nav.Link as={Link} key={uniqueId} to={`/category/${category._id}`}>
+            return (<Nav.Link as={Link} key={uniqueId} to={`/categories/${category._id}/products`}>
                 {category.name}
             </Nav.Link>)
         }

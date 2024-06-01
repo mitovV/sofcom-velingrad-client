@@ -1,9 +1,10 @@
 import { Container, Row, Col } from 'react-bootstrap'
-import { Routes, Route, matchPath } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import { Suspense } from 'react'
 
-import Sidebar from './components/Sidebar/Sidebar'
 import Header from './components/Header/Header'
+import Sidebar from './components/Sidebar/Sidebar'
+import ProductList from './components/ProductList/ProductList'
 import Footer from './components/Footer/Footer'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -23,7 +24,7 @@ function App() {
             </Col>
             <Col xs={10} id="page-content-wrapper">
               <Routes>
-                <Route path='categories/:id' element={<h1>Main category</h1>}/>
+                <Route path='categories/:id/products' element={<ProductList/>}/>
               </Routes>
             </Col>
           </Row>
