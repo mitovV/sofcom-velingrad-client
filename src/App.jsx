@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 
 import Header from './components/Header/Header'
 import Sidebar from './components/Sidebar/Sidebar'
+import Home from './components/Home/Home'
 import ProductList from './components/ProductList/ProductList'
 import Footer from './components/Footer/Footer'
 
@@ -21,6 +22,7 @@ function App() {
             </Col>
             <Col xs={10} id="page-content-wrapper">
               <Routes>
+                <Route path='/' element={<Home/>}/>
                 <Route path='categories/:id/products' element={<ProductList/>}/>
               </Routes>
             </Col>
