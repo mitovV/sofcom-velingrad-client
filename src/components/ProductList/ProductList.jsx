@@ -34,7 +34,7 @@ export default function ProductList() {
     else {
         return (
             <div className="product-category-wrapper">
-                <h2 className="product-category">{category.name}</h2>
+                <h2>{category.name}</h2>
                 <h3>Все още няма продукти в тази категория</h3>
             </div>
         )
