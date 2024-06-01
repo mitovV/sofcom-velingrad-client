@@ -1,30 +1,45 @@
 
 import { useEffect, useState } from 'react'
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
-import * as mainCategoriesService from '../../services/mainCategoriesService'
+import { Link } from 'react-router-dom'
+
+import * as categoriesService from '../../services/categoriesService'
 
 export default function Sidebar() {
-    const [mainCategories, setMainCategories] = useState([])
+    const [categories, setCategories] = useState([])
 
     useEffect(() => {
-        mainCategoriesService.getAll()
-            .then(setMainCategories)
+        categoriesService.getAll()
+            .then(setCategories)
     }, [])
+
+    const renderCategory = (category, parentId) => {
+        const uniqueId = parentId ? `${parentId}-${category._id}` : `${category._id}`
+        console.log(uniqueId);
+        if (category.subCategories && category.subCategories.length > 0) {
+            return (
+                <NavDropdown key={uniqueId} title={category.name} id={`nav-dropdown-${uniqueId}`}>
+                    {category.subCategories.map(subcategory => renderCategory(subcategory, category._id))}
+                </NavDropdown>
+            )
+        }
+        else {
+            return (<Nav.Link as={Link} key={uniqueId} to={`/category/${category._id}`}>
+                {category.name}
+            </Nav.Link>)
+        }
+    }
+
+    const renderCategories = (categories) => {
+        return categories.map(category => renderCategory(category))
+    }
 
     return (
         <Navbar expand="lg" className="flex-column">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="flex-column">
-                    {/* <Nav.Link href="#category1">Категория 1</Nav.Link>
-                    <NavDropdown title="Категория 2" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#subcategory1">Подкатегория 1</NavDropdown.Item>
-                        <NavDropdown.Item href="#subcategory2">Подкатегория 2</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#subcategory3">Подкатегория 3</NavDropdown.Item>
-                    </NavDropdown>
-                    <Nav.Link href="#category3">Категория 3</Nav.Link> */}
-                    {mainCategories.map(x => <Nav.Link key={x._id} to={x._id}>{x.name}</Nav.Link> )}
+                    {renderCategories(categories)}
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
