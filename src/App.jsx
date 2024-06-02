@@ -5,6 +5,7 @@ import Header from './components/Header/Header'
 import Sidebar from './components/Sidebar/Sidebar'
 import Home from './components/Home/Home'
 import ProductList from './components/ProductList/ProductList'
+import RingSizeList from './components/RingSizeList/RingSizeList'
 import Footer from './components/Footer/Footer'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -23,6 +24,7 @@ function App() {
             <Col xs={10} id="page-content-wrapper">
               <Routes>
                 <Route path='/' element={<Home/>}/>
+                <Route path='administration/ring-size' element= {<RingSizeList/>}/>
                 <Route path='categories/:id/products' element={<ProductList/>}/>
               </Routes>
             </Col>
