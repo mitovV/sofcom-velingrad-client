@@ -1,20 +1,40 @@
 import { Button } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
+
+import * as ringSizesService from '../../services/ringSizesService'
 
 import './CreateRingSize.css'
 
 export default function CreateRingSize() {
+    const navidate = useNavigate()
+
+    const onCreateSizeFormHandler = (e) => {
+        e.preventDefault()
+
+        const size = e.target.size.value
+
+        ringSizesService.create(size)
+            .then(res => {
+                if (res.status === 201) {
+                    navidate('/administration/ring-size')
+                }
+            })
+            .catch(err => console.error(err))
+
+    }
+
     return (
         <div className='create-ring-form'>
-        <Form>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Размер</Form.Label>
-                <Form.Control type="text" placeholder="Въведи рамера" />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-                Submit
-            </Button>
-        </Form>
+            <Form onSubmit={onCreateSizeFormHandler}>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Размер</Form.Label>
+                    <Form.Control type="text" placeholder="Въведи рамера" name='size' />
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                    Submit
+                </Button>
+            </Form>
         </div>
     )
 }
