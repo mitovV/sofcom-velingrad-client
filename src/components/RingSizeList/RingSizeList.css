@@ -5,4 +5,28 @@
 
 .ring-size-wrapper a{
     color: burlywood;
+    margin-bottom: 15px;
+}
+.list-group{
+    width: 50%;
+    margin: auto;
+    text-align: left;
+}
+
+.list-group-item{
+    padding-left: 30px !important;
+}
+
+.ring-size-delete-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 10px;
+}
+
+.ring-size-edit-btn{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 55px;
 }
