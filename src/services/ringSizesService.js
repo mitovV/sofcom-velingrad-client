@@ -2,10 +2,11 @@ import config from "../config/config"
 
 const categoryUrl = config.BASE_SERVER_URL + 'ring-size/'
 
-export const all = async () => {
+export const all = async (page, limit) => {
+    let url = categoryUrl + `?page=${page}&limit=${limit}`
 
     try {
-        const response = await fetch(categoryUrl)
+        const response = await fetch(url)
         let data = await response.json()
         return data
 
@@ -15,17 +16,30 @@ export const all = async () => {
 }
 
 export const create = async (size) => {
-   
+
     try {
-        return await fetch(categoryUrl,{
+        return await fetch(categoryUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({size})
+            body: JSON.stringify({ size })
         })
 
     } catch (error) {
         return console.error(error)
+    }
+}
+
+export const count = async () => {
+    let url = categoryUrl + 'count'
+
+    try {
+        const response = await fetch(url)
+        let data = await response.json()
+        return data
+    } catch (error) {
+        return console.error(error)
+
     }
 }
