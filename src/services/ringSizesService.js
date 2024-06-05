@@ -1,6 +1,6 @@
 import config from "../config/config"
 
-const categoryUrl = config.BASE_SERVER_URL + 'ring-size/'
+const categoryUrl = config.BASE_SERVER_URL + 'ring-sizes/'
 
 export const all = async (page, limit) => {
     let url = categoryUrl + `?page=${page}&limit=${limit}`
@@ -47,7 +47,7 @@ export const count = async () => {
 export const deleteBySize = async (id) => {
 
     try {
-        return await fetch(categoryUrl + `/${id}`, {
+        return await fetch(categoryUrl + `${id}`, {
             method: 'DELETE',
         })
     } catch (error) {

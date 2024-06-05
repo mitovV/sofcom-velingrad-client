@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 import * as ringSizesService from '../../../services/ringSizesService'
 
-export default function DeleteModal({ _id, size }) {
+export default function DeleteModal({ _id, size, setRerender }) {
   const navigate = useNavigate()
   const [show, setShow] = useState(false)
 
@@ -13,7 +13,10 @@ export default function DeleteModal({ _id, size }) {
   const handleShow = () => setShow(true)
   const onDeleteBtnHandler = () => {
     ringSizesService.deleteBySize(_id)
-      .then(navigate('administration/ring-size'))
+      .then(res => {
+        handleClose()
+        setRerender(true)
+      })
       .catch(err => console.error(err))
   }
 

@@ -14,6 +14,7 @@ export default function RingSizeList() {
     const [currentPage, setCurrentPage] = useState(1)
     const [itemsPerPage] = useState(13)
     const [count, setCount] = useState(0)
+    const [rerender, setRerender] = useState(false)
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
@@ -23,7 +24,9 @@ export default function RingSizeList() {
 
         ringSizesService.all(currentPage, itemsPerPage)
             .then(setRingSizes)
-    }, [currentPage, itemsPerPage])
+
+        setRerender(false)
+    }, [currentPage, itemsPerPage, rerender])
 
     return (
         <div className="ring-size-wrapper">
@@ -36,7 +39,7 @@ export default function RingSizeList() {
                             <ListGroupItem key={index}>
                                 {item.size}
                                 <Button className="ring-size-edit-btn" variant="info"><i className="bi bi-pencil-fill"></i></Button>
-                                <DeleteModal _id={item._id} size={item.size}/>
+                                <DeleteModal _id={item._id} size={item.size} setRerender={setRerender}/>
                             </ListGroupItem>)
                         )}
                     </ListGroup>
