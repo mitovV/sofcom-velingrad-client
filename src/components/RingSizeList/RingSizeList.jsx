@@ -31,14 +31,14 @@ export default function RingSizeList() {
     return (
         <div className="ring-size-wrapper">
             <h2>Списък с рамери</h2>
-            <Nav.Link as={Link} to="/administration/ring-sizes/create"><strong>Добави нов</strong></Nav.Link>
+            <Nav.Link as={Link} className="add-new-size" to="/administration/ring-sizes/create"><strong>Добави нов</strong></Nav.Link>
             {ringSizes.length > 0 ?
                 <>
                     <ListGroup>
                         {ringSizes.map((item, index) => (
                             <ListGroupItem key={index}>
                                 {item.size}
-                                <Button className="ring-size-edit-btn" variant="info"><i className="bi bi-pencil-fill"></i></Button>
+                                <Button as={Link} to={`/administration/ring-sizes/edit/${item._id}`} className="ring-size-edit-btn" variant="info" ><i className="bi bi-pencil-fill"></i></Button>
                                 <DeleteModal _id={item._id} size={item.size} setRerender={setRerender}/>
                             </ListGroupItem>)
                         )}

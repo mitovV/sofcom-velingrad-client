@@ -3,18 +3,23 @@
     margin-right: 200px;
 }
 
-.ring-size-wrapper a{
-    color: burlywood;
+.add-new-size {
+    color: burlywood !important;
     margin-bottom: 15px;
 }
-.list-group{
+
+.list-group {
     width: 50%;
     margin: auto;
     text-align: left;
 }
 
-.list-group-item{
+.list-group-item {
     padding-left: 30px !important;
+}
+
+.list-group-item:nth-child(even) {
+    background-color: whitesmoke;
 }
 
 .ring-size-delete-btn {
@@ -24,13 +29,14 @@
     margin-right: 10px;
 }
 
-.ring-size-edit-btn{
+.ring-size-edit-btn {
     position: absolute;
+    color: purple !important;
     bottom: 0;
     right: 0;
     margin-right: 55px;
 }
 
-.pagination-wrapper{
+.pagination-wrapper {
     margin-top: 25px;
 }

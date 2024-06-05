@@ -6,6 +6,7 @@ import Sidebar from './components/Sidebar/Sidebar'
 import Home from './components/Home/Home'
 import RingSizeList from './components/RingSizeList/RingSizeList'
 import CreateRingSize from './components/CreateRingSize/CreateRingSize'
+import EditRingSize from './components/EditRingSize/EditRingSize'
 import ProductList from './components/ProductList/ProductList'
 import Footer from './components/Footer/Footer'
 
@@ -27,6 +28,7 @@ function App() {
               <Route path='/' element={<Home />} />
               <Route path='administration/ring-sizes' element={<RingSizeList />} />
               <Route path='administration/ring-sizes/create' element={<CreateRingSize />} />
+              <Route path='administration/ring-sizes/edit/:id' element={<EditRingSize />} />
               <Route path='categories/:id/products' element={<ProductList />} />
             </Routes>
           </Col>
