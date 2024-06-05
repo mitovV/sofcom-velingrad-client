@@ -17,7 +17,7 @@ export default function CreateRingSize() {
         ringSizesService.create(size)
             .then(res => {
                 if (res.status === 201) {
-                    navidate('/administration/ring-size')
+                    navidate('/administration/ring-sizes')
                 }
             })
             .catch(err => console.error(err))

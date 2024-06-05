@@ -25,8 +25,8 @@ function App() {
           <Col xs={10} id="page-content-wrapper">
             <Routes>
               <Route path='/' element={<Home />} />
-              <Route path='administration/ring-size' element={<RingSizeList />} />
-              <Route path='administration/ring-size/create' element={<CreateRingSize />} />
+              <Route path='administration/ring-sizes' element={<RingSizeList />} />
+              <Route path='administration/ring-sizes/create' element={<CreateRingSize />} />
               <Route path='categories/:id/products' element={<ProductList />} />
             </Routes>
           </Col>

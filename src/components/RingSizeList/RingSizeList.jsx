@@ -3,6 +3,7 @@ import { Nav, ListGroup, ListGroupItem, Button } from "react-bootstrap"
 import { Link } from "react-router-dom"
 
 import CustomPagination from "../CustomPagination/CustomPagination"
+import DeleteModal from "./DeleteModal/DeleteModal"
 
 import * as ringSizesService from '../../services/ringSizesService'
 
@@ -17,7 +18,6 @@ export default function RingSizeList() {
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
     useEffect(() => {
-        console.log(ringSizes);
         ringSizesService.count()
             .then(setCount)
 
@@ -28,7 +28,7 @@ export default function RingSizeList() {
     return (
         <div className="ring-size-wrapper">
             <h2>Списък с рамери</h2>
-            <Nav.Link as={Link} to="/administration/ring-size/create"><strong>Добави нов</strong></Nav.Link>
+            <Nav.Link as={Link} to="/administration/ring-sizes/create"><strong>Добави нов</strong></Nav.Link>
             {ringSizes.length > 0 ?
                 <>
                     <ListGroup>
@@ -36,7 +36,7 @@ export default function RingSizeList() {
                             <ListGroupItem key={index}>
                                 {item.size}
                                 <Button className="ring-size-edit-btn" variant="info"><i className="bi bi-pencil-fill"></i></Button>
-                                <Button className="ring-size-delete-btn" variant="danger"><i className="bi bi-x-circle"></i></Button>
+                                <DeleteModal _id={item._id} size={item.size}/>
                             </ListGroupItem>)
                         )}
                     </ListGroup>

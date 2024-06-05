@@ -43,3 +43,14 @@ export const count = async () => {
 
     }
 }
+
+export const deleteBySize = async (id) => {
+
+    try {
+        return await fetch(categoryUrl + `/${id}`, {
+            method: 'DELETE',
+        })
+    } catch (error) {
+        return console.error(error)
+    }
+}
