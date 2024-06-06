@@ -1,5 +1,6 @@
 .header{
     background-color: #C5FF95;
+    box-shadow: 0 0 5px rgba(0,0,0,.05), 2px 2px 5px rgba(0,0,0,.1);
     text-align: center;
     padding-top: 15px;
     padding-bottom: 15px;

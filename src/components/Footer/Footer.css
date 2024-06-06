@@ -1,11 +1,15 @@
 footer{
     background-color: #C5FF95;
+    box-shadow: 0 0 5px rgba(0,0,0,.05), 2px 2px 5px rgba(0,0,0,.1);
     padding-top: 15px;
     padding-bottom: 15px;
 }
 .container{
-    text-align: center;
+    text-align: left;
 }
-.container i {
-    margin-left: 10px;
+.date-wrapper {
+    font-size: 18px;
+    margin-top: 35px !important;
+    color: purple;
+    text-align: center;
 }
