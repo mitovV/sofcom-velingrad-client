@@ -6,6 +6,7 @@ import Sidebar from './components/Sidebar/Sidebar'
 import Home from './components/Home/Home'
 import RingSizeList from './components/RingSizeList/RingSizeList'
 import CreateRingSize from './components/CreateRingSize/CreateRingSize'
+import Dashboard from './components/Dashboard/Dashboard'
 import EditRingSize from './components/EditRingSize/EditRingSize'
 import ProductList from './components/ProductList/ProductList'
 import Footer from './components/Footer/Footer'
@@ -26,6 +27,7 @@ function App() {
           <Col xs={10} id="page-content-wrapper">
             <Routes>
               <Route path='/' element={<Home />} />
+              <Route path='administration/' element={<Dashboard />} />
               <Route path='administration/ring-sizes' element={<RingSizeList />} />
               <Route path='administration/ring-sizes/create' element={<CreateRingSize />} />
               <Route path='administration/ring-sizes/edit/:id' element={<EditRingSize />} />
