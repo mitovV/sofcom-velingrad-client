@@ -2,7 +2,7 @@ import { Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 
-import * as ringSizesService from '../../services/ringSizesService'
+import * as ringSizesService from '../../../services/ringSizesService'
 
 import './CreateRingSize.css'
 

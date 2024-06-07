@@ -2,3 +2,7 @@
     text-align: center;
     margin-right: 200px;
 }
+
+.list-group i {
+    margin-left: 10px;
+}

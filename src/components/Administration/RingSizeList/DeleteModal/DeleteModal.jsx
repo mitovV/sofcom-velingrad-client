@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import { useNavigate } from 'react-router-dom'
 
-import * as ringSizesService from '../../../services/ringSizesService'
+import * as ringSizesService from '../../../../services/ringSizesService'
 
 export default function DeleteModal({ _id, size, setRerender }) {
   const navigate = useNavigate()

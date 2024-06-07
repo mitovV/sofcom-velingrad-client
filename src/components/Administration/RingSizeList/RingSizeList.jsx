@@ -2,10 +2,10 @@ import { useState, useEffect } from "react"
 import { Nav, ListGroup, ListGroupItem, Button } from "react-bootstrap"
 import { Link } from "react-router-dom"
 
-import CustomPagination from "../CustomPagination/CustomPagination"
+import CustomPagination from '../../CustomPagination/CustomPagination'
 import DeleteModal from "./DeleteModal/DeleteModal"
 
-import * as ringSizesService from '../../services/ringSizesService'
+import * as ringSizesService from '../../../services/ringSizesService'
 
 import './RingSizeList.css'
 
