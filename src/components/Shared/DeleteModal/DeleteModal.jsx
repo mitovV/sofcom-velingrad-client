@@ -1,37 +1,32 @@
 import { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
-import { useNavigate } from 'react-router-dom'
 
-import * as ringSizesService from '../../../../services/ringSizesService'
+import './DeleteModal.css'
 
-export default function DeleteModal({ _id, size, setRerender }) {
-  const navigate = useNavigate()
+export default function DeleteModal({ _id, title, message, setRerender, onDeleteHandler }) {
   const [show, setShow] = useState(false)
 
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
+
   const onDeleteBtnHandler = () => {
-    ringSizesService.deleteBySize(_id)
-      .then(res => {
-        handleClose()
-        setRerender(true)
-      })
-      .catch(err => console.error(err))
+    handleClose()
+    onDeleteHandler(_id)
+    setRerender(true)
   }
 
   return (
     <>
-
-      <Button className="ring-size-delete-btn" variant="danger" onClick={handleShow}>
+      <Button className="delete-btn" variant="danger" onClick={handleShow}>
         <i className="bi bi-x-circle"></i>
       </Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{size}</Modal.Title>
+          <Modal.Title>{title}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Сигурни ли сте, че искате да изтриете този размер?</Modal.Body>
+        <Modal.Body>{message}</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Затвори

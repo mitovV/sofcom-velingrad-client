@@ -1,0 +1,10 @@
+.delete-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 10px;
+}
+
+.bi {
+    margin-left: 0px !important;
+}

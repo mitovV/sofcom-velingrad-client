@@ -14,6 +14,7 @@ import Footer from './components/Footer/Footer'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "bootstrap-icons/font/bootstrap-icons.css"
 import './App.css'
+import CategoriesList from './components/Administration/CategoriesList/CategoriesList'
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
               <Route path='/' element={<Home />} />
               <Route path='administration/' element={<Dashboard />} />
               <Route path='administration/ring-sizes' element={<RingSizeList />} />
+              <Route path='administration/categories' element={<CategoriesList />} />
               <Route path='administration/ring-sizes/create' element={<CreateRingSize />} />
               <Route path='administration/ring-sizes/edit/:id' element={<EditRingSize />} />
               <Route path='categories/:id/products' element={<ProductList />} />

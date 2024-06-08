@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react"
-import { Nav, ListGroup, ListGroupItem, Button } from "react-bootstrap"
+import { Nav } from "react-bootstrap"
 import { Link } from "react-router-dom"
 
 import CustomPagination from '../../CustomPagination/CustomPagination'
-import DeleteModal from "./DeleteModal/DeleteModal"
 
 import * as ringSizesService from '../../../services/ringSizesService'
 
 import './RingSizeList.css'
+import BaseListing from "../../Shared/BaseListing/BaseListing"
 
 export default function RingSizeList() {
     const [ringSizes, setRingSizes] = useState([])
@@ -15,6 +15,7 @@ export default function RingSizeList() {
     const [itemsPerPage] = useState(13)
     const [count, setCount] = useState(0)
     const [rerender, setRerender] = useState(false)
+    const modalMessage = 'Сигурни ли сте, че искате да изтриете този размер?'
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
@@ -28,23 +29,30 @@ export default function RingSizeList() {
         setRerender(false)
     }, [currentPage, itemsPerPage, rerender])
 
+    const onDeleteHandler = (_id) => {
+
+        ringSizesService.deleteBySize(_id)
+            .then()
+            .catch(err => console.error(err))
+    }
+
     return (
         <div className="ring-size-wrapper">
             <h2>Списък с рамери</h2>
             <Nav.Link as={Link} className="add-new-size" to="/administration/ring-sizes/create"><strong>Добави нов</strong></Nav.Link>
             {ringSizes.length > 0 ?
                 <>
-                    <ListGroup>
-                        {ringSizes.map((item, index) => (
-                            <ListGroupItem key={index}>
-                                {item.size}
-                                <Button as={Link} to={`/administration/ring-sizes/edit/${item._id}`} className="ring-size-edit-btn" variant="info" ><i className="bi bi-pencil-fill"></i></Button>
-                                <DeleteModal _id={item._id} size={item.size} setRerender={setRerender}/>
-                            </ListGroupItem>)
-                        )}
-                    </ListGroup>
+                    <BaseListing
+                        data={ringSizes}
+                        name='size'
+                        path='/administration/ring-sizes/edit/'
+                        message={modalMessage}
+                        setRerender={setRerender}
+                        onDeleteHandler={onDeleteHandler}
+                    >
+                    </BaseListing>
                     <div className="pagination-wrapper">
-                    <CustomPagination itemsPerPage={itemsPerPage} totalItems={count} paginate={paginate} />
+                        <CustomPagination itemsPerPage={itemsPerPage} totalItems={count} paginate={paginate} />
                     </div>
                 </>
                 : <h4>Все още няма размери</h4>}

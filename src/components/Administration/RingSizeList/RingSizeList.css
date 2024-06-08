@@ -22,21 +22,6 @@
     background-color: whitesmoke;
 }
 
-.ring-size-delete-btn {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin-right: 10px;
-}
-
-.ring-size-edit-btn {
-    position: absolute;
-    color: purple !important;
-    bottom: 0;
-    right: 0;
-    margin-right: 55px;
-}
-
 .pagination-wrapper {
     margin-top: 25px;
 }
