@@ -1,0 +1,24 @@
+.categories-wrapper {
+    text-align: center;
+    margin-right: 200px;
+}
+
+.add-new-category {
+    color: burlywood !important;
+    margin-bottom: 15px;
+}
+
+.list-group {
+    width: 50%;
+    margin: auto;
+    text-align: left;
+}
+
+.list-group-item {
+    padding-left: 30px !important;
+}
+
+.list-group-item:nth-child(even) {
+    background-color: whitesmoke;
+}
+
