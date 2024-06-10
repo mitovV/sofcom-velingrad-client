@@ -15,6 +15,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import "bootstrap-icons/font/bootstrap-icons.css"
 import './App.css'
 import CategoriesList from './components/Administration/CategoriesList/CategoriesList'
+import PageNotFound from './components/PageNotFound/PageNotFound'
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
               <Route path='administration/ring-sizes/create' element={<CreateRingSize />} />
               <Route path='administration/ring-sizes/edit/:id' element={<EditRingSize />} />
               <Route path='categories/:id/products' element={<ProductList />} />
+              <Route path='*' element={<PageNotFound />} />
             </Routes>
           </Col>
         </Row>
