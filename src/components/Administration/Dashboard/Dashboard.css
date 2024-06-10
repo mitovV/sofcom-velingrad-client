@@ -1,8 +1,7 @@
-.dashboard {
+.dashboard-header {
     text-align: center;
-    margin-right: 200px;
 }
 
 .list-group i {
-    margin-left: 10px;
+    padding-left: 10px;
 }

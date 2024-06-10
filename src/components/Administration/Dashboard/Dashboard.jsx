@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 export default function Dashboard() {
     return (
         <>
-            <h2 className="dashboard">Dashboard</h2>
+            <h2 className="dashboard-header">Dashboard</h2>
             <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
                 <div sm={4}>
                     <ListGroup>
