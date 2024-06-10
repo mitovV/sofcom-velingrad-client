@@ -10,11 +10,6 @@ export default function Home() {
     useEffect(() => {
         productService.getLatest()
             .then(setProducts)
-
-                  if (Math.random() > 0.85) {
-                
-                throw new Error('blbasldkgsio');
-            }
     }, [])
 
     if (products.length > 0) {

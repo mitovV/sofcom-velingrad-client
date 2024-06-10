@@ -1,10 +1,11 @@
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 
+import ListingProductsByCategory from "../Shared/ListingProductsByCategory/LIstingProductsByCategory"
+
 import * as productsService from '../../services/productsService'
 import * as categoriesService from '../../services/categoriesService'
 
-import './ProductList.css'
 
 export default function ProductList() {
     const { id } = useParams()
@@ -27,10 +28,7 @@ export default function ProductList() {
     }
     else {
         return (
-            <div className="product-category-wrapper">
-                <h2>{category.name}</h2>
-                <h3>Все още няма продукти в тази категория</h3>
-            </div>
+          <ListingProductsByCategory name={category.name}/>
         )
     }
 }
