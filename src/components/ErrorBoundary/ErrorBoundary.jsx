@@ -1,6 +1,8 @@
 import { Component } from "react"
 import PageNotFound from "../PageNotFound/PageNotFound"
 
+import * as errorsService from '../../services/errorsService'
+
 export default class ErrorBoundary extends Component {
     constructor() {
         super()
@@ -17,7 +19,13 @@ export default class ErrorBoundary extends Component {
     }
 
     componentDidCatch(error, errorInfo) {
-        console.log('componentDidCatch')
+        const errorObj = { error, errorInfo }
+       
+        errorsService.log(errorObj)
+            .then()
+            .catch(err => console
+                .error(err)
+            )
     }
 
     render() {
