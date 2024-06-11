@@ -12,6 +12,7 @@ import ProductList from './components/ProductList/ProductList'
 import Footer from './components/Footer/Footer'
 import MainCategoriesList from './components/Administration/MainCategoriesList/MainCategoriesList'
 import SubCategoriesList from './components/Administration/SubCategoriesList/SubCategoriesList'
+import RingCategoriesList from './components/Administration/RingCategoriesList/RingCategoriesList'
 import PageNotFound from './components/PageNotFound/PageNotFound'
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
 
@@ -36,6 +37,7 @@ function App() {
                 <Route path='administration/ring-sizes' element={<RingSizeList />} />
                 <Route path='administration/categories/main' element={<MainCategoriesList />} />
                 <Route path='administration/categories/sub' element={<SubCategoriesList />} />
+                <Route path='administration/categories/ring' element={<RingCategoriesList />} />
                 <Route path='administration/ring-sizes/create' element={<CreateRingSize />} />
                 <Route path='administration/ring-sizes/edit/:id' element={<EditRingSize />} />
                 <Route path='categories/:id/products' element={<ProductList />} />

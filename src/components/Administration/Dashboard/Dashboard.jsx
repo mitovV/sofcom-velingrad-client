@@ -19,7 +19,7 @@ export default function Dashboard() {
                             Под категории
                             <i className="bi bi-arrow-up-circle"></i>
                         </ListGroup.Item>
-                        <ListGroup.Item as={Link} to="#link2">
+                        <ListGroup.Item as={Link} to="/administration/categories/ring">
                             Категории пръстени
                             <i className="bi bi-arrow-up-circle"></i>
                         </ListGroup.Item>
