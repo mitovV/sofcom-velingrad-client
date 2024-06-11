@@ -4,8 +4,6 @@ import Form from 'react-bootstrap/Form'
 
 import * as ringSizesService from '../../../services/ringSizesService'
 
-import './CreateRingSize.css'
-
 export default function CreateRingSize() {
     const navidate = useNavigate()
 

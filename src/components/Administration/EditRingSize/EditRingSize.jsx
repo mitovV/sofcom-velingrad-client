@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { Button } from 'react-bootstrap'
-import Form from 'react-bootstrap/Form'
+import BaseForm from '../../Shared/BaseForm/BaseForm'
 
 import * as ringSizesService from '../../../services/ringSizesService'
 
@@ -9,9 +8,12 @@ export default function EditRingSize() {
     const navigate = useNavigate()
     const [data, setData] = useState({})
     const { id } = useParams()
-
+    const [label, placeholderData, nameData, btnVariant, btnValue] = ['Размер', 'Въведи рамера', 'size', 'success', 'Промени']
+    
     const onEditSizeFormHandler = (e) => {
         e.preventDefault()
+
+        console.log(e.target);
         let id = data._id
         let size = e.target.size.value
 
@@ -29,16 +31,14 @@ export default function EditRingSize() {
     }, [id])
 
     return (
-        <div className='create-ring-form'>
-            <Form onSubmit={onEditSizeFormHandler}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Размер</Form.Label>
-                    <Form.Control type="text" placeholder="Въведи рамера" name='size' defaultValue={data.size} />
-                </Form.Group>
-                <Button variant="success" type="submit">
-                    Промени
-                </Button>
-            </Form>
-        </div>
+        <BaseForm 
+        label={label} 
+        placeholderData={placeholderData} 
+        nameData={nameData} 
+        onFromSubmitHandler={onEditSizeFormHandler}
+        defaultValue={data.size}
+        btnVariant={btnVariant}
+        btnValue={btnValue}
+        />
     )
 }
