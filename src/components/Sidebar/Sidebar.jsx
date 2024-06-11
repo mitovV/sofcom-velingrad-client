@@ -9,7 +9,7 @@ export default function Sidebar() {
     const [categories, setCategories] = useState([])
 
     useEffect(() => {
-        categoriesService.getAll()
+        categoriesService.getAllMain()
             .then(setCategories)
     }, [])
 

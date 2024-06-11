@@ -10,7 +10,8 @@ import Dashboard from './components/Administration/Dashboard/Dashboard'
 import EditRingSize from './components/Administration/EditRingSize/EditRingSize'
 import ProductList from './components/ProductList/ProductList'
 import Footer from './components/Footer/Footer'
-import CategoriesList from './components/Administration/CategoriesList/CategoriesList'
+import MainCategoriesList from './components/Administration/MainCategoriesList/MainCategoriesList'
+import SubCategoriesList from './components/Administration/SubCategoriesList/SubCategoriesList'
 import PageNotFound from './components/PageNotFound/PageNotFound'
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
 
@@ -33,7 +34,8 @@ function App() {
                 <Route path='/' element={<Home />} />
                 <Route path='administration/' element={<Dashboard />} />
                 <Route path='administration/ring-sizes' element={<RingSizeList />} />
-                <Route path='administration/categories' element={<CategoriesList />} />
+                <Route path='administration/categories/main' element={<MainCategoriesList />} />
+                <Route path='administration/categories/sub' element={<SubCategoriesList />} />
                 <Route path='administration/ring-sizes/create' element={<CreateRingSize />} />
                 <Route path='administration/ring-sizes/edit/:id' element={<EditRingSize />} />
                 <Route path='categories/:id/products' element={<ProductList />} />

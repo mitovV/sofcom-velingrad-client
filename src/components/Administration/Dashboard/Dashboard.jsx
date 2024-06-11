@@ -11,11 +11,11 @@ export default function Dashboard() {
             <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
                 <div sm={4}>
                     <ListGroup>
-                        <ListGroup.Item as={Link} to="/administration/categories">
+                        <ListGroup.Item as={Link} to="/administration/categories/main">
                             Главни категории
                             <i className="bi bi-arrow-up-circle"></i>
                         </ListGroup.Item>
-                        <ListGroup.Item as={Link} to="#link2">
+                        <ListGroup.Item as={Link} to="/administration/categories/sub">
                             Под категории
                             <i className="bi bi-arrow-up-circle"></i>
                         </ListGroup.Item>
