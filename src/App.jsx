@@ -19,6 +19,7 @@ import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "bootstrap-icons/font/bootstrap-icons.css"
 import './App.css'
+import EditMainCategory from './components/Administration/EditMainCategory/EditMainCategory'
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
                 <Route path='administration/categories/main' element={<MainCategoriesList />} />
                 <Route path='administration/categories/sub' element={<SubCategoriesList />} />
                 <Route path='administration/categories/ring' element={<RingCategoriesList />} />
+                <Route path='administration/categories/edit/:id' element={<EditMainCategory />} />
                 <Route path='administration/ring-sizes/create' element={<CreateRingSize />} />
                 <Route path='administration/ring-sizes/edit/:id' element={<EditRingSize />} />
                 <Route path='categories/:id/products' element={<ProductList />} />

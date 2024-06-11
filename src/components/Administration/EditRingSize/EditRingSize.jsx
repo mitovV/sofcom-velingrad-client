@@ -10,25 +10,24 @@ export default function EditRingSize() {
     const { id } = useParams()
     const [label, placeholderData, nameData, btnVariant, btnValue] = ['Размер', 'Въведи рамера', 'size', 'success', 'Промени']
     
+    useEffect(() => {
+        ringSizesService.getById(id)
+            .then(setData)
+            .catch(err => console.error(err))
+    }, [id])
+
     const onEditSizeFormHandler = (e) => {
         e.preventDefault()
 
-        console.log(e.target);
         let id = data._id
         let size = e.target.size.value
-
+        
         ringSizesService.update(id, size)
             .then(res => {
                 navigate('/administration/ring-sizes')
             })
             .catch(err => console.error(err))
     }
-
-    useEffect(() => {
-        ringSizesService.getById(id)
-            .then(setData)
-            .catch(err => console.error(err))
-    }, [id])
 
     return (
         <BaseForm 
