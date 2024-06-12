@@ -1,6 +1,6 @@
 import config from "../config/config"
 
-const categoryUrl = config.BASE_SERVER_URL +'categories/'
+const categoryUrl = config.BASE_SERVER_URL + 'categories/'
 
 export const getAllMain = async () => {
     let url = categoryUrl + 'main/all'
@@ -44,23 +44,23 @@ export const getAllRing = async () => {
 export const getById = async (id) => {
     let url = categoryUrl + id
 
-    try{    
+    try {
         const response = await fetch(url)
         let data = await response.json()
         return data
 
-    } catch(message) {
+    } catch (message) {
         return console.error(message)
     }
 }
 
-export const update = async(id, name) => {
+export const update = async (id, name) => {
     let url = categoryUrl + id
 
     let newData = {
         name
     }
-    
+
     try {
         const response = await fetch(url, {
             method: 'PATCH',
@@ -79,7 +79,19 @@ export const update = async(id, name) => {
 }
 
 export const deleteRingById = async (_id) => {
-    let url = categoryUrl + 'ring/' + _id
+    let url = categoryUrl + `ring/${_id}`
+
+    try {
+        return await fetch(url, {
+            method: 'DELETE',
+        })
+    } catch (error) {
+        return console.error(error)
+    }
+}
+
+export const deleteMainCategoryById = async (_id) => {
+    let url = categoryUrl + `main/${_id}`
 
     try {
         return await fetch(url, {

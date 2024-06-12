@@ -18,13 +18,16 @@ export default function CategoriesList() {
         categoriesService.getAllMain()
             .then(setCategorise)
             .catch(err => console.error(err))
-    }, [])
+
+            setRerender(false)
+    }, [rerender])
 
     const onDeleteHandler = (_id) => {
-
+        categoriesService.deleteMainCategoryById(_id)
+            .then()
+            .catch(err => console.error(err))
     }
 
-    //TODO: Create logic for delete and edit
     return (
         <div className="categories-wrapper">
             <h2>Списък с категории</h2>
