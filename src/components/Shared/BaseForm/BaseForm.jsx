@@ -7,7 +7,7 @@ export default function BaseEditForm({ label, placeholderData, nameData, onFromS
     return (
         <div className='base-form'>
             <Form onSubmit={onFromSubmitHandler}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-3">
                     <Form.Label>{label}</Form.Label>
                     <Form.Control type="text" placeholder={placeholderData} name={nameData} defaultValue={defaultValue}/>
                 </Form.Group>

@@ -54,8 +54,32 @@ export const getById = async (id) => {
     }
 }
 
-export const update = async (id, name) => {
-    let url = categoryUrl + id
+export const updateMain = async (id, name) => {
+    let url = categoryUrl + `main/${id}`
+
+    let newData = {
+        name
+    }
+
+    try {
+        const response = await fetch(url, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newData)
+        })
+
+        let data = response.json()
+        return data
+
+    } catch (error) {
+        return console.error(error)
+    }
+}
+
+export const updateSub = async (id, name) => {
+    let url = categoryUrl + `sub/${id}`
 
     let newData = {
         name

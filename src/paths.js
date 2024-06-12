@@ -1,4 +1,4 @@
-const AdministrationHome = 'administration/'
+const AdministrationHome = '/administration/'
 
 const Path = {
     Home: '/',
@@ -10,7 +10,8 @@ const Path = {
     AdministrationCategoriesRing: AdministrationHome + 'categories/ring',
     AdministrationCategoriesEdit: AdministrationHome + 'categories/edit/:id',
     AdministrationRingSizesCreate: AdministrationHome + 'ring-sizes/create',
-    AdministrationRingSizesEdit: AdministrationHome + 'ring-sizes/edit/:id'
+    AdministrationRingSizesEdit: AdministrationHome + 'ring-sizes/edit/:id',
+    AdministrationEditSubCategory: AdministrationHome + 'categories/sub/edit/:id'
 }
 
 export default Path

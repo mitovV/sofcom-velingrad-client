@@ -22,7 +22,7 @@ export default function EditMainCategory() {
         let id = data._id
         let name = e.target.name.value
         
-        categoriesService.update(id, name)
+        categoriesService.updateMain(id, name)
             .then(res => {
                 navigate('/administration/categories/main')
             })

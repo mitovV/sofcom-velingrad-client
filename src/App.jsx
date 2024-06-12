@@ -17,11 +17,12 @@ import SubCategoriesList from './components/Administration/SubCategoriesList/Sub
 import RingCategoriesList from './components/Administration/RingCategoriesList/RingCategoriesList'
 import PageNotFound from './components/PageNotFound/PageNotFound'
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
+import EditMainCategory from './components/Administration/EditMainCategory/EditMainCategory'
+import EditSubCategory from './components/Administration/EditSubCategory/EditSubCategory'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "bootstrap-icons/font/bootstrap-icons.css"
 import './App.css'
-import EditMainCategory from './components/Administration/EditMainCategory/EditMainCategory'
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
                 <Route path={Path.AdministrationCategoriesEdit} element={<EditMainCategory />} />
                 <Route path={Path.AdministrationRingSizesCreate} element={<CreateRingSize />} />
                 <Route path={Path.AdministrationRingSizesEdit} element={<EditRingSize />} />
+                <Route path={Path.AdministrationEditSubCategory} element={<EditSubCategory />} />
                 <Route path='*' element={<PageNotFound />} />
               </Routes>
             </ErrorBoundary>
