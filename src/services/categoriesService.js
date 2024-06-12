@@ -101,3 +101,15 @@ export const deleteMainCategoryById = async (_id) => {
         return console.error(error)
     }
 }
+
+export const deleteSubCategoryById = async (_id) => {
+    let url = categoryUrl + `sub/${_id}`
+
+    try {
+        return await fetch(url, {
+            method: 'DELETE',
+        })
+    } catch (error) {
+        return console.error(error)
+    }
+}
