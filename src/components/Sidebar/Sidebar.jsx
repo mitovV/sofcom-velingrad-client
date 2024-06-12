@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
+import Path from '../../paths'
+
 import * as categoriesService from '../../services/categoriesService'
 
 export default function Sidebar() {
@@ -24,7 +26,7 @@ export default function Sidebar() {
             )
         }
         else {
-            return (<Nav.Link as={Link} key={uniqueId} to={`/categories/${category._id}/products`}>
+            return (<Nav.Link as={Link} key={uniqueId} to={Path.CategoriesProducts.replace(':id', category._id)}>
                 {category.name}
             </Nav.Link>)
         }
