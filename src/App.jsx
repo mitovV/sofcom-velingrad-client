@@ -23,6 +23,7 @@ import EditSubCategory from './components/Administration/EditSubCategory/EditSub
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "bootstrap-icons/font/bootstrap-icons.css"
 import './App.css'
+import EditRingCategory from './components/Administration/EditRingCategory/EditRingCategory'
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
                 <Route path={Path.AdministrationRingSizesCreate} element={<CreateRingSize />} />
                 <Route path={Path.AdministrationRingSizesEdit} element={<EditRingSize />} />
                 <Route path={Path.AdministrationEditSubCategory} element={<EditSubCategory />} />
+                <Route path={Path.AdministrationEditRingCategory} element={<EditRingCategory />} />
                 <Route path='*' element={<PageNotFound />} />
               </Routes>
             </ErrorBoundary>

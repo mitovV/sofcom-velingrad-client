@@ -102,6 +102,30 @@ export const updateSub = async (id, name) => {
     }
 }
 
+export const updateRingCategory = async (id, name) => {
+    let url = categoryUrl + `ring/${id}`
+
+    let newData = {
+        name
+    }
+
+    try {
+        const response = await fetch(url, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newData)
+        })
+
+        let data = response.json()
+        return data
+
+    } catch (error) {
+        return console.error(error)
+    }
+}
+
 export const deleteRingById = async (_id) => {
     let url = categoryUrl + `ring/${_id}`
 

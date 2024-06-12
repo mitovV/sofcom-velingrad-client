@@ -11,7 +11,8 @@ const Path = {
     AdministrationCategoriesEdit: AdministrationHome + 'categories/edit/:id',
     AdministrationRingSizesCreate: AdministrationHome + 'ring-sizes/create',
     AdministrationRingSizesEdit: AdministrationHome + 'ring-sizes/edit/:id',
-    AdministrationEditSubCategory: AdministrationHome + 'categories/sub/edit/:id'
+    AdministrationEditSubCategory: AdministrationHome + 'categories/sub/edit/:id',
+    AdministrationEditRingCategory: AdministrationHome + 'categories/ring/edit/:id'
 }
 
 export default Path
