@@ -25,8 +25,6 @@ export default function RingSizeList() {
 
         ringSizesService.all(currentPage, itemsPerPage)
             .then(setRingSizes)
-
-        setRerender(false)
     }, [currentPage, itemsPerPage, rerender])
 
     const onDeleteHandler = (_id) => {

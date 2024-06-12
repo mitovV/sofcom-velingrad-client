@@ -16,10 +16,14 @@ export default function RingCategoriesList() {
         categoriesService.getAllRing()
             .then(setCategorise)
             .catch(err => console.error(err))
-    }, [])
+
+            setRerender(false)
+    }, [rerender])
 
     const onDeleteHandler = (_id) => {
-
+        categoriesService.deleteRingById(_id)
+            .then()
+            .catch(err => console.error(err))
     }
 
     return (

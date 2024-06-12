@@ -77,3 +77,15 @@ export const update = async(id, name) => {
         return console.error(error)
     }
 }
+
+export const deleteRingById = async (_id) => {
+    let url = categoryUrl + 'ring/' + _id
+
+    try {
+        return await fetch(url, {
+            method: 'DELETE',
+        })
+    } catch (error) {
+        return console.error(error)
+    }
+}
