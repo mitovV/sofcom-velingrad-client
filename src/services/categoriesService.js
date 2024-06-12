@@ -54,6 +54,27 @@ export const getById = async (id) => {
     }
 }
 
+export const createMain = async (name) => {
+    let url = categoryUrl + 'main'
+
+    let dataObj = {
+        name
+    }
+
+    try {
+        return await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dataObj)
+        })
+        
+    } catch (error) {
+        return console.error(error)
+    }
+}
+
 export const updateMain = async (id, name) => {
     let url = categoryUrl + `main/${id}`
 

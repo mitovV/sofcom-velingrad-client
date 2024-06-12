@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import BaseForm from '../../Shared/BaseForm/BaseForm'
 
+import Path from '../../../paths'
+
 import * as ringSizesService from '../../../services/ringSizesService'
 
 export default function CreateRingSize() {
@@ -15,7 +17,7 @@ export default function CreateRingSize() {
         ringSizesService.create(size)
             .then(res => {
                 if (res.status === 201) {
-                    navidate('/administration/ring-sizes')
+                    navidate(Path.AdministrationRingSizes)
                 }
             })
             .catch(err => console.error(err))
