@@ -1,6 +1,8 @@
 import { Container, Row, Col } from 'react-bootstrap'
 import { Routes, Route } from 'react-router-dom'
 
+import Path from './paths'
+
 import Header from './components/Header/Header'
 import Sidebar from './components/Sidebar/Sidebar'
 import Home from './components/Home/Home'
@@ -33,16 +35,16 @@ function App() {
           <Col xs={10} id="page-content-wrapper">
             <ErrorBoundary>
               <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='administration/' element={<Dashboard />} />
-                <Route path='administration/ring-sizes' element={<RingSizeList />} />
-                <Route path='administration/categories/main' element={<MainCategoriesList />} />
-                <Route path='administration/categories/sub' element={<SubCategoriesList />} />
-                <Route path='administration/categories/ring' element={<RingCategoriesList />} />
-                <Route path='administration/categories/edit/:id' element={<EditMainCategory />} />
-                <Route path='administration/ring-sizes/create' element={<CreateRingSize />} />
-                <Route path='administration/ring-sizes/edit/:id' element={<EditRingSize />} />
-                <Route path='categories/:id/products' element={<ProductList />} />
+                <Route path={Path.Home} element={<Home />} />
+                <Route path={Path.CategoriesProducts} element={<ProductList />} />
+                <Route path={Path.AdministrationHome} element={<Dashboard />} />
+                <Route path={Path.AdministrationRingSizes} element={<RingSizeList />} />
+                <Route path={Path.AdministrationCategoriesMain} element={<MainCategoriesList />} />
+                <Route path={Path.AdministrationCategoriesSub} element={<SubCategoriesList />} />
+                <Route path={Path.AdministrationCategoriesRing} element={<RingCategoriesList />} />
+                <Route path={Path.AdministrationCategoriesEdit} element={<EditMainCategory />} />
+                <Route path={Path.AdministrationRingSizesCreate} element={<CreateRingSize />} />
+                <Route path={Path.AdministrationRingSizesEdit} element={<EditRingSize />} />
                 <Route path='*' element={<PageNotFound />} />
               </Routes>
             </ErrorBoundary>
