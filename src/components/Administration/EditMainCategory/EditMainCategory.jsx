@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+
 import BaseForm from '../../Shared/BaseForm/BaseForm'
+import Path from '../../../paths'
 
 import * as categoriesService from '../../../services/categoriesService'
 
@@ -24,7 +26,7 @@ export default function EditMainCategory() {
         
         categoriesService.updateMain(id, name)
             .then(res => {
-                navigate('/administration/categories/main')
+                navigate(Path.AdministrationCategoriesMain)
             })
             .catch(err => console.error(err))
     }

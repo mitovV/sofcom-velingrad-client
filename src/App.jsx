@@ -44,11 +44,11 @@ function App() {
                 <Route path={Path.AdministrationCategoriesMain} element={<MainCategoriesList />} />
                 <Route path={Path.AdministrationCategoriesSub} element={<SubCategoriesList />} />
                 <Route path={Path.AdministrationCategoriesRing} element={<RingCategoriesList />} />
-                <Route path={Path.AdministrationCategoriesEdit} element={<EditMainCategory />} />
+                <Route path={Path.AdministrationCategoriesMainEdit} element={<EditMainCategory />} />
                 <Route path={Path.AdministrationRingSizesCreate} element={<CreateRingSize />} />
                 <Route path={Path.AdministrationRingSizesEdit} element={<EditRingSize />} />
-                <Route path={Path.AdministrationEditSubCategory} element={<EditSubCategory />} />
-                <Route path={Path.AdministrationEditRingCategory} element={<EditRingCategory />} />
+                <Route path={Path.AdministrationCategoriesSubEdit} element={<EditSubCategory />} />
+                <Route path={Path.AdministrationCategoriesRingEdit} element={<EditRingCategory />} />
                 <Route path='*' element={<PageNotFound />} />
               </Routes>
             </ErrorBoundary>

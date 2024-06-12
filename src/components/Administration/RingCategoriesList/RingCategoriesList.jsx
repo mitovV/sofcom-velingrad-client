@@ -3,6 +3,7 @@ import { Nav } from "react-bootstrap"
 import { Link } from "react-router-dom"
 
 import BaseListing from "../../Shared/BaseListing/BaseListing"
+import Path from '../../../paths'
 
 import * as categoriesService from '../../../services/categoriesService'
 
@@ -29,12 +30,12 @@ export default function RingCategoriesList() {
     return (
         <div className="categories-wrapper">
             <h2>Списък с категории пръстени</h2>
-            <Nav.Link as={Link} className="add-new-category" to="/administration/categories/ring/create"><strong>Добави нова категория за пръстен</strong></Nav.Link>
+            <Nav.Link as={Link} className="add-new-category" to={Path.AdministrationCategoriesRingCreate}><strong>Добави нова категория за пръстен</strong></Nav.Link>
             {categories.length > 0 ?
                 <BaseListing
                     data={categories}
                     name='name'
-                    path='/administration/categories/ring/edit/'
+                    path={Path.AdministrationCategoriesRingEdit}
                     message={modalMessage}
                     setRerender={setRerender}
                     onDeleteHandler={onDeleteHandler}

@@ -3,11 +3,12 @@ import { Nav } from "react-bootstrap"
 import { Link } from "react-router-dom"
 
 import CustomPagination from '../../CustomPagination/CustomPagination'
+import BaseListing from "../../Shared/BaseListing/BaseListing"
+import Path from '../../../paths'
 
 import * as ringSizesService from '../../../services/ringSizesService'
 
 import './RingSizeList.css'
-import BaseListing from "../../Shared/BaseListing/BaseListing"
 
 export default function RingSizeList() {
     const [ringSizes, setRingSizes] = useState([])
@@ -37,13 +38,13 @@ export default function RingSizeList() {
     return (
         <div className="ring-size-wrapper">
             <h2>Списък с рамери</h2>
-            <Nav.Link as={Link} className="add-new-size" to="/administration/ring-sizes/create"><strong>Добави нов</strong></Nav.Link>
+            <Nav.Link as={Link} className="add-new-size" to={Path.AdministrationRingSizesCreate}><strong>Добави нов</strong></Nav.Link>
             {ringSizes.length > 0 ?
                 <>
                     <BaseListing
                         data={ringSizes}
                         name='size'
-                        path='/administration/ring-sizes/edit/'
+                        path={Path.AdministrationRingSizesEdit}
                         message={modalMessage}
                         setRerender={setRerender}
                         onDeleteHandler={onDeleteHandler}

@@ -14,7 +14,7 @@ export default function Listing({ data, name, path, message, setRerender, onDele
                         {item[name]}
                         <Button
                             as={Link}
-                            to={`${path}${item._id}`}
+                            to={`${path.split(':id')[0]}${item._id}`}
                             className="edit-btn"
                             variant="info" >
                             <i className="bi bi-pencil-fill"></i>
