@@ -21,6 +21,7 @@ import RingCategoriesList from './components/Administration/RingCategoriesList/R
 import EditRingCategory from './components/Administration/EditRingCategory/EditRingCategory'
 import SubCategoriesList from './components/Administration/SubCategoriesList/SubCategoriesList'
 import EditSubCategory from './components/Administration/EditSubCategory/EditSubCategory'
+import CreateSubCategory from './components/Administration/CreateSubCategory/CreateSubCategory'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "bootstrap-icons/font/bootstrap-icons.css"
@@ -46,6 +47,7 @@ function App() {
                 <Route path={Path.AdministrationCategoriesMainCreate} element={<CreateMainCategory />} />
                 <Route path={Path.AdministrationCategoriesSub} element={<SubCategoriesList />} />
                 <Route path={Path.AdministrationCategoriesSubEdit} element={<EditSubCategory />} />
+                <Route path={Path.AdministrationCategoriesSubCreate} element={<CreateSubCategory />} />
                 <Route path={Path.AdministrationCategoriesRing} element={<RingCategoriesList />} />
                 <Route path={Path.AdministrationCategoriesRingEdit} element={<EditRingCategory />} />
                 <Route path={Path.AdministrationRingSizes} element={<RingSizeList />} />

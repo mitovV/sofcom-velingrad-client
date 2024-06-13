@@ -99,6 +99,27 @@ export const updateMain = async (id, name) => {
     }
 }
 
+export const createSub = async (categoryId, name) => {
+    let url = categoryUrl + 'sub'
+
+    let dataObj = {
+        categoryId,
+        name
+    }
+
+    try {
+        return await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dataObj)
+        })
+        
+    } catch (error) {
+        return console.error(error)
+    }
+}
 export const updateSub = async (id, name) => {
     let url = categoryUrl + `sub/${id}`
 
