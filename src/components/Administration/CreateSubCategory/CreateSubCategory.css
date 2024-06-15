@@ -1,0 +1,9 @@
+.create-sub-category-form {
+    text-align: center;
+    margin-right: 13vw;
+}
+
+#name {
+    width: 30%;
+    margin-left: 28vw;
+}

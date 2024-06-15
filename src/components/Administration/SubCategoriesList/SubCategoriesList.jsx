@@ -8,6 +8,8 @@ import Path from '../../../paths'
 
 import * as categoriesService from '../../../services/categoriesService'
 
+import './SubCategoriesList.css'
+
 export default function SubCategoriesList() {
     const [id, setId] = useState('')
     const [mainCategories, setMainCategories] = useState([])

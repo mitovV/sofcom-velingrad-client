@@ -7,6 +7,8 @@ import Path from '../../../paths'
 
 import * as categoriesService from '../../../services/categoriesService'
 
+import './CreateSubCategory.css'
+
 export default function () {
     const [mainCategories, setMainCategories] = useState([])
     const navigate = useNavigate()
@@ -36,7 +38,7 @@ export default function () {
     }
 
     return (
-        <Form onSubmit={onCrateSubCategoryFormHandler}>
+        <Form className='create-sub-category-form' onSubmit={onCrateSubCategoryFormHandler}>
             <Form.Group className='mb-3' controlId='category'>
                 <Form.Label>Категория</Form.Label>
                 <Form.Select aria-label='category'>
