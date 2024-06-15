@@ -15,6 +15,19 @@ export const getAllMain = async () => {
     }
 }
 
+export const getAllSubByParendId = async (id) => {
+    let url = categoryUrl + `sub/parent/${id}`
+
+    try {
+        const response = await fetch(url)
+        let data = await response.json()
+        return data
+
+    } catch (message) {
+        return console.error(message)
+    }
+}
+
 export const getMainWhichHaveSub = async () => {
     let url = categoryUrl + 'main/all/sub'
 
