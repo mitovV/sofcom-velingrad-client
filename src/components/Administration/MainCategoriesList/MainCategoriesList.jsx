@@ -20,7 +20,7 @@ export default function CategoriesList() {
             .then(setCategorise)
             .catch(err => console.error(err))
 
-            setRerender(false)
+        setRerender(false)
     }, [rerender])
 
     const onDeleteHandler = (_id) => {
@@ -32,7 +32,12 @@ export default function CategoriesList() {
     return (
         <div className="categories-wrapper">
             <h2>Списък с категории</h2>
-            <Nav.Link as={Link} className="add-new-category" to={Path.AdministrationCategoriesMainCreate}><strong>Добави нова категория</strong></Nav.Link>
+            <Nav.Link
+                as={Link}
+                className="add-new-category"
+                to={Path.AdministrationCategoriesMainCreate}>
+                <strong>Добави нова категория</strong>
+            </Nav.Link>
             {categories.length > 0 ?
                 <BaseListing
                     data={categories}

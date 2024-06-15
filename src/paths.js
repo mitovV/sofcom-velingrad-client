@@ -16,6 +16,10 @@ const Path = {
     AdministrationRingSizes:  AdministrationHome + 'ring-sizes',
     AdministrationRingSizesCreate: AdministrationHome + 'ring-sizes/create',
     AdministrationRingSizesEdit: AdministrationHome + 'ring-sizes/edit/:id',
+    AdministrationGoldPrices: AdministrationHome + 'gold-prices',
+    AdministrationGoldPricesCreate: AdministrationHome + 'gold-prices/create',
+    AdministrationGoldPricesEdit: AdministrationHome + 'gold-prices/edit/:id',
+    AdministrationProducts: AdministrationHome + 'products'
 }
 
 export default Path
