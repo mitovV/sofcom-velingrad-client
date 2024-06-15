@@ -14,3 +14,23 @@ export const getAll = async () => {
         return console.error(message)
     }
 }
+
+export const create = async (condition, price) => {
+    let dataObj = {
+        condition,
+        price
+    }
+
+    try {
+        return await fetch(categoryUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dataObj)
+        })
+        
+    } catch (error) {
+        return console.error(error)
+    }
+}

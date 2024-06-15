@@ -1,0 +1,9 @@
+.create-gold-price-form {
+    text-align: center;
+    margin-right: 13vw;
+}
+
+.create-gold-price-form input {
+    width: 30%;
+    margin-left: 28vw;
+}

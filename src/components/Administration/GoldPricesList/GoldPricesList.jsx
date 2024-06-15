@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Nav } from "react-bootstrap"
+import { Nav, Table, Button } from "react-bootstrap"
 import { Link } from "react-router-dom"
 
 import Path from "../../../paths"
@@ -8,18 +8,14 @@ import * as goldPricesService from '../../../services/goldPricesService'
 
 import './GoldPricesList.css'
 
-export default function GoldPrices() {
+export default function GoldPricesList() {
     const [goldPrices, setGoldPrices] = useState([])
-    const [rerender, setRerender] = useState(false)
-    const modalMessage = 'Сигурни ли сте, че искате да изтриете тази цена?'
 
     useEffect(() => {
         goldPricesService.getAll()
             .then(setGoldPrices)
             .catch(err => console.error(err))
-
-        setRerender(false)
-    }, [rerender])
+    }, [])
 
     const onDeleteHandler = (_id) => {
         goldPricesService.deleteById(_id)
@@ -37,15 +33,30 @@ export default function GoldPrices() {
                 <strong>Добави нова цена</strong>
             </Nav.Link>
             {goldPrices.length > 0 ?
-                <BaseListing
-                    data={goldPrices}
-                    name='name'
-                    path={Path.AdministrationGoldPricesEdit}
-                    message={modalMessage}
-                    setRerender={setRerender}
-                    onDeleteHandler={onDeleteHandler}
-                >
-                </BaseListing>
+                <Table striped bordered hover size="sm">
+                    <thead>
+                        <tr>
+                            <th>Състояние</th>
+                            <th>Цена</th>
+                            <th>Промени</th>
+                            <th>Изтрии</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {goldPrices.map(goldPrice => 
+                        <tr key={goldPrice._id}>
+                            <td>{goldPrice.condition}</td>
+                            <td>{goldPrice.price}</td>
+                            <td>
+                            <Button variant="primary">Промени</Button>
+                            </td>
+                            <td>
+                            <Button variant="danger">Изтрии</Button>
+                            </td>
+                        </tr>
+                    )}
+                    </tbody>
+                </Table>
                 : <h4>Все още няма цени</h4>}
         </div>
     )

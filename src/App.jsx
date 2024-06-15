@@ -23,6 +23,7 @@ import SubCategoriesList from './components/Administration/SubCategoriesList/Sub
 import EditSubCategory from './components/Administration/EditSubCategory/EditSubCategory'
 import CreateSubCategory from './components/Administration/CreateSubCategory/CreateSubCategory'
 import GoldPricesList from './components/Administration/GoldPricesList/GoldPricesList'
+import CreateGoldPrice from './components/Administration/CreateGoldPrice/CreateGoldPrice'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "bootstrap-icons/font/bootstrap-icons.css"
@@ -55,6 +56,7 @@ function App() {
                 <Route path={Path.AdministrationRingSizesCreate} element={<CreateRingSize />} />
                 <Route path={Path.AdministrationRingSizesEdit} element={<EditRingSize />} />
                 <Route path={Path.AdministrationGoldPrices} element={<GoldPricesList />} />
+                <Route path={Path.AdministrationGoldPricesCreate} element={<CreateGoldPrice />} />
                 <Route path='*' element={<PageNotFound />} />
               </Routes>
             </ErrorBoundary>
