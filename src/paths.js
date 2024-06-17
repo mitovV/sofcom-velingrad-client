@@ -19,7 +19,8 @@ const Path = {
     AdministrationGoldPrices: AdministrationHome + 'gold-prices',
     AdministrationGoldPricesCreate: AdministrationHome + 'gold-prices/create',
     AdministrationGoldPricesEdit: AdministrationHome + 'gold-prices/edit/:id',
-    AdministrationProducts: AdministrationHome + 'products'
+    AdministrationProducts: AdministrationHome + 'products',
+    AdministrationProductsCreate: AdministrationHome + 'products/create'
 }
 
 export default Path
