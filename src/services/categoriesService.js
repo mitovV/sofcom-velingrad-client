@@ -55,9 +55,11 @@ export const getById = async (id) => {
     }
 }
 
-export const create = async (name) => {
+export const create = async (name, parentId, secondParentId) => {
     let dataObj = {
-        name
+        name,
+        parentId,
+        secondParentId
     }
 
     try {
