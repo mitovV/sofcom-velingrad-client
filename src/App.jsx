@@ -11,17 +11,12 @@ import Footer from './components/Footer/Footer'
 import PageNotFound from './components/PageNotFound/PageNotFound'
 import ProductList from './components/ProductList/ProductList'
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
-import CreateMainCategory from './components/Administration/CreateMainCategory/CreateMainCategory'
-import MainCategoriesList from './components/Administration/MainCategoriesList/MainCategoriesList'
-import EditMainCategory from './components/Administration/EditMainCategory/EditMainCategory'
+import CreateCategory from './components/Administration/CreateCategory/CreateCategory'
+import CategoriesList from './components/Administration/CategoriesList/CategoriesList'
+import EditCategory from './components/Administration/EditCategory/EditCategory'
 import RingSizeList from './components/Administration/RingSizeList/RingSizeList'
 import EditRingSize from './components/Administration/EditRingSize/EditRingSize'
 import CreateRingSize from './components/Administration/CreateRingSize/CreateRingSize'
-import RingCategoriesList from './components/Administration/RingCategoriesList/RingCategoriesList'
-import EditRingCategory from './components/Administration/EditRingCategory/EditRingCategory'
-import SubCategoriesList from './components/Administration/SubCategoriesList/SubCategoriesList'
-import EditSubCategory from './components/Administration/EditSubCategory/EditSubCategory'
-import CreateSubCategory from './components/Administration/CreateSubCategory/CreateSubCategory'
 import GoldPricesList from './components/Administration/GoldPricesList/GoldPricesList'
 import CreateGoldPrice from './components/Administration/CreateGoldPrice/CreateGoldPrice'
 import AdminProductList from './components/Administration/AdminProductList/AdminProductList'
@@ -46,14 +41,9 @@ function App() {
                 <Route path={Path.Home} element={<Home />} />
                 <Route path={Path.CategoriesProducts} element={<ProductList />} />
                 <Route path={Path.AdministrationHome} element={<Dashboard />} />
-                <Route path={Path.AdministrationCategoriesMain} element={<MainCategoriesList />} />
-                <Route path={Path.AdministrationCategoriesMainEdit} element={<EditMainCategory />} />
-                <Route path={Path.AdministrationCategoriesMainCreate} element={<CreateMainCategory />} />
-                <Route path={Path.AdministrationCategoriesSub} element={<SubCategoriesList />} />
-                <Route path={Path.AdministrationCategoriesSubEdit} element={<EditSubCategory />} />
-                <Route path={Path.AdministrationCategoriesSubCreate} element={<CreateSubCategory />} />
-                <Route path={Path.AdministrationCategoriesRing} element={<RingCategoriesList />} />
-                <Route path={Path.AdministrationCategoriesRingEdit} element={<EditRingCategory />} />
+                <Route path={Path.AdministrationCategoriesAll} element={<CategoriesList />} />
+                <Route path={Path.AdministrationCategoriesEdit} element={<EditCategory />} />
+                <Route path={Path.AdministrationCategoriesCreate} element={<CreateCategory />} />
                 <Route path={Path.AdministrationRingSizes} element={<RingSizeList />} />
                 <Route path={Path.AdministrationRingSizesCreate} element={<CreateRingSize />} />
                 <Route path={Path.AdministrationRingSizesEdit} element={<EditRingSize />} />

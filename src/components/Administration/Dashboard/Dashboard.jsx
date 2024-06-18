@@ -13,16 +13,8 @@ export default function Dashboard() {
             <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
                 <div sm={4}>
                     <ListGroup>
-                        <ListGroup.Item as={Link} to={Path.AdministrationCategoriesMain}>
-                            Главни категории
-                            <i className="bi bi-arrow-up-circle"></i>
-                        </ListGroup.Item>
-                        <ListGroup.Item as={Link} to={Path.AdministrationCategoriesSub}>
-                            Под категории
-                            <i className="bi bi-arrow-up-circle"></i>
-                        </ListGroup.Item>
-                        <ListGroup.Item as={Link} to={Path.AdministrationCategoriesRing}>
-                            Категории пръстени
+                        <ListGroup.Item as={Link} to={Path.AdministrationCategoriesAll}>
+                            Категории
                             <i className="bi bi-arrow-up-circle"></i>
                         </ListGroup.Item>
                         <ListGroup.Item as={Link} to={Path.AdministrationRingSizes}>

@@ -5,7 +5,7 @@ import Path from '../../../paths'
 
 import * as categoriesService from '../../../services/categoriesService'
 
-export default function CreateMainCategory() {
+export default function CreateCategory() {
     const navidate = useNavigate()
     const [label, placeholderData, nameData, btnVariant, btnValue] = ['Име на главната категория', 'Въведи името', 'name', 'primary', 'Запази']
 
@@ -14,10 +14,10 @@ export default function CreateMainCategory() {
 
         let name = e.target.name.value
 
-        categoriesService.createMain(name)
+        categoriesService.create(name)
             .then(res => {
                 if (res.status === 201) {
-                    navidate(Path.AdministrationCategoriesMain)
+                    navidate(Path.AdministrationCategoriesAll)
                 }
             }).catch(err => console.error(err))
     }

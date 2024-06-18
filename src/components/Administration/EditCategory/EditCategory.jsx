@@ -24,9 +24,9 @@ export default function EditMainCategory() {
         let id = data._id
         let name = e.target.name.value
         
-        categoriesService.updateMain(id, name)
+        categoriesService.update(id, name)
             .then(res => {
-                navigate(Path.AdministrationCategoriesMain)
+                navigate(Path.AdministrationCategoriesAll)
             })
             .catch(err => console.error(err))
     }
