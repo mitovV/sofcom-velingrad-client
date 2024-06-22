@@ -2,7 +2,7 @@ import config from "../config/config"
 
 const categoryUrl = config.BASE_SERVER_URL + 'ring-sizes/'
 
-export const all = async (page, limit) => {
+export const all = async (page = 0, limit = 0) => {
     const url = categoryUrl + `?page=${page}&limit=${limit}`
 
     try {

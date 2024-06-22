@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 
-import ListingProductsByCategory from "../Shared/ListingProductsByCategory/LIstingProductsByCategory"
+import ListingProductsByCategory from "../ListingProductsByCategory/ListingProductsByCategory"
 
 import * as productsService from '../../services/productsService'
 import * as categoriesService from '../../services/categoriesService'
