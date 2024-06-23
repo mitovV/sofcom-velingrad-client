@@ -77,6 +77,9 @@ export default function CreateProduct() {
             let weight = e.target.weight.value
             let size = e.target.size.value
         }
+        if (mainCategory === 'Злато') {
+            let carat = e.target.carat.value
+        }
 
         let firstImage = e.target.firstImage.files[0]
         let secondImage = e.target.secondImage.files[0]
