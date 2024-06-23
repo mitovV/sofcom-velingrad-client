@@ -6,7 +6,7 @@ export default function Weight() {
             controlId='floatingNumber'
             label='Въведете грамаж'
             className='mb-3'>
-            <Form.Control type='number' name='weight' step='0.01' />
+            <Form.Control type='number' name='weight' step='0.01' min='0'/>
         </FloatingLabel>
     )
 }

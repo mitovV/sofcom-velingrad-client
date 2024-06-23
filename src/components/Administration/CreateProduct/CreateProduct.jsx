@@ -3,6 +3,8 @@ import React from "react"
 import { Button, Form, Container, Row, Col } from "react-bootstrap"
 
 import RingInputs from "./RingInputs/RingInputs"
+import GoldCarat from "./SharedInputs/GoldCarat/GoldCarat"
+import Weight from "./SharedInputs/Weight/Weight" 
 
 import * as categoriesService from '../../../services/categoriesService'
 import ImageInput from "./SharedInputs/ImageInput/ImageInput"
@@ -13,6 +15,7 @@ export default function CreateProduct() {
     const [mainCategories, setMainCategories] = useState([])
     const [categories, setCategories] = useState([])
     const [category, setCategory] = useState({})
+    const [mainCategory, setMainCategory] = useState('')
 
     const fields = {
         'Дамски': <RingInputs />,
@@ -39,15 +42,31 @@ export default function CreateProduct() {
     }, [])
 
     const generateFields = () => {
-        return fields[category.name]
+        let res = fields[category.name]
+
+        if (mainCategory === 'Злато') {
+            return (
+                <>
+                    <Weight />
+                    <GoldCarat />
+                    {res}
+                </>
+            )
+        }
+
+        return res
     }
 
     const handleCategoryChange = (e) => {
-        const selectedCategoryId = e.target.value
+        let data = e.target.value.split(' ')
+        const selectedCategoryId = data[0]
+        let mainCategory = data[1]
+
 
         if (selectedCategoryId) {
             let res = categories.find(c => c._id === selectedCategoryId)
             setCategory(res)
+            setMainCategory(mainCategory)
         }
     }
 
@@ -55,9 +74,6 @@ export default function CreateProduct() {
         e.preventDefault()
 
         if (['Мъжки', 'Дамски', 'Детски'].includes(category.name)) {
-            let material = e.target.category.value
-            let test = document.getElementById(material).previousSibling.previousSibling.textContent
-            console.log(test);
             let weight = e.target.weight.value
             let size = e.target.size.value
         }
@@ -65,19 +81,19 @@ export default function CreateProduct() {
         let firstImage = e.target.firstImage.files[0]
         let secondImage = e.target.secondImage.files[0]
         let thirdImage = e.target.thirdImage.files[0]
-     
+
         //productService.create()
     }
 
-    const CategoryOptions = ({ categories, level = 0 }) => {
+    const CategoryOptions = ({ categories, categoryPath, level = 0 }) => {
         return categories.map((c) => (
             <React.Fragment key={c._id}>
                 {c.subCategories.length > 0
-                    ? <option id={c._id} value={c._id} disabled>{'—'.repeat(level) + c.name}</option>
-                    : <option id={c._id} value={c._id}>{'—'.repeat(level) + c.name}</option>}
+                    ? <option value={c._id} disabled>{'—'.repeat(level) + c.name}</option>
+                    : <option value={c._id + ' ' + [...categoryPath, c.name].join(' ')}>{'—'.repeat(level) + c.name}</option>}
 
                 {c.subCategories.length > 0 && (
-                    <CategoryOptions categories={c.subCategories} level={level + 1} />
+                    <CategoryOptions categories={c.subCategories} categoryPath={[...categoryPath, c.name]} level={level + 1} />
                 )}
             </React.Fragment>
         ));
@@ -90,7 +106,7 @@ export default function CreateProduct() {
                 <Form.Select name='category' value={category._id} onChange={handleCategoryChange}>
                     <option value=''>Изберете категория</option>
                     {mainCategories.length > 0 ? (
-                        <CategoryOptions categories={mainCategories} />
+                        <CategoryOptions categories={mainCategories} categoryPath={[]} />
                     ) : (
                         <option disabled>Loading categories...</option>
                     )}
@@ -103,7 +119,7 @@ export default function CreateProduct() {
                         <Container fluid='sm'>
                             <Row>
                                 <Col>
-                                    <ImageInput imageId='firstImage'/>
+                                    <ImageInput imageId='firstImage' />
                                 </Col>
                                 <Col>
                                     <ImageInput imageId='secondImage' />

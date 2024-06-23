@@ -22,3 +22,7 @@ export const getLatest = async (id) => {
     let arr = []
     return arr
 }
+
+export const create = async () => {
+    
+}

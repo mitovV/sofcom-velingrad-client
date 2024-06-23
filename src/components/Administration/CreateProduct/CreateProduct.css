@@ -4,3 +4,8 @@
     margin-right: auto;
     margin-top: 10px;
 }
+
+.create-product-form input,
+.create-product-form select{
+    margin-top: 10px;
+}

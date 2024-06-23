@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { Form } from "react-bootstrap"
-import Weight from "../SharedInputs/Weight/Weight"
 
 import * as ringSizesService from '../../../../services/ringSizesService'
 
@@ -25,7 +24,6 @@ export default function RingInputs() {
 
     return (
         <Form.Group className='mb-3'>
-            <Weight />
             <Form.Select name='size' value={size._id} onChange={handleSizeChange}>
                 <option value=''>Изберете размер</option>
                 {sizes.map(s => (
