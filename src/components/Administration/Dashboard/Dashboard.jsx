@@ -25,7 +25,7 @@ export default function Dashboard() {
                             Списък с продукти
                             <i className="bi bi-arrow-up-circle"></i>
                         </ListGroup.Item>
-                        <ListGroup.Item as={Link} to={Path.AdministrationGoldCondition}>
+                        <ListGroup.Item as={Link} to={Path.AdministrationGoldConditions}>
                             Вид на златото
                             <i className="bi bi-arrow-up-circle"></i>
                         </ListGroup.Item>
