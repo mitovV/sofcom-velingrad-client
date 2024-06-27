@@ -53,6 +53,14 @@ export default function CreateProduct() {
                 </>
             )
         }
+        else if (mainCategory === 'Сребро') {
+            return(
+                <>
+                    <Weight />
+                    {res}
+                </>
+            )
+        }
 
         return res
     }
@@ -65,6 +73,7 @@ export default function CreateProduct() {
 
         if (selectedCategoryId) {
             let res = categories.find(c => c._id === selectedCategoryId)
+            res._id = e.target.value
             setCategory(res)
             setMainCategory(mainCategory)
         }
@@ -88,15 +97,15 @@ export default function CreateProduct() {
         //productService.create()
     }
 
-    const CategoryOptions = ({ categories, categoryPath, level = 0 }) => {
-        return categories.map((c) => (
+    const CategoryOptions = ({ categoriesData, categoryPath, level = 0 }) => {
+        return categoriesData.map((c) => (
             <React.Fragment key={c._id}>
                 {c.subCategories.length > 0
-                    ? <option value={c._id} disabled>{'—'.repeat(level) + c.name}</option>
-                    : <option value={c._id + ' ' + [...categoryPath, c.name].join(' ')}>{'—'.repeat(level) + c.name}</option>}
+                    ? <option value={c._id} disabled>{[...categoryPath, c.name].join('—')}</option>
+                    : <option value={c._id + ' ' + [...categoryPath, c.name].join(' ')}>{[...categoryPath, c.name].join('—')}</option>}
 
                 {c.subCategories.length > 0 && (
-                    <CategoryOptions categories={c.subCategories} categoryPath={[...categoryPath, c.name]} level={level + 1} />
+                    <CategoryOptions categoriesData={c.subCategories} categoryPath={[...categoryPath, c.name]} level={level + 1} />
                 )}
             </React.Fragment>
         ));
@@ -109,7 +118,7 @@ export default function CreateProduct() {
                 <Form.Select name='category' value={category._id} onChange={handleCategoryChange}>
                     <option value=''>Изберете категория</option>
                     {mainCategories.length > 0 ? (
-                        <CategoryOptions categories={mainCategories} categoryPath={[]} />
+                        <CategoryOptions categoriesData={mainCategories} categoryPath={[]} />
                     ) : (
                         <option disabled>Loading categories...</option>
                     )}
