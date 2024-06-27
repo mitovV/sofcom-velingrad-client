@@ -17,9 +17,14 @@ export default function GoldPricesList() {
             .catch(err => console.error(err))
     }, [])
 
-    const onDeleteHandler = (_id) => {
+    const onDeleteHandler = (e) => {
+        let _id = e.target.id
         goldPricesService.deleteById(_id)
-            .then()
+            .then(res => {
+                goldPricesService.getAll()
+                .then(setGoldPrices)
+                .catch(err => console.error(err))
+            })
             .catch(err => console.error(err))
     }
 
@@ -45,13 +50,13 @@ export default function GoldPricesList() {
                     <tbody>
                         {goldPrices.map(goldPrice => 
                         <tr key={goldPrice._id}>
-                            <td>{goldPrice.condition}</td>
+                            <td>{goldPrice.condition.name}</td>
                             <td>{goldPrice.price}</td>
                             <td>
                             <Button variant="primary">Промени</Button>
                             </td>
                             <td>
-                            <Button variant="danger">Изтрии</Button>
+                            <Button id={goldPrice._id} variant="danger" onClick={onDeleteHandler}>Изтрии</Button>
                             </td>
                         </tr>
                     )}

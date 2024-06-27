@@ -22,6 +22,7 @@ import CreateGoldPrice from './components/Administration/CreateGoldPrice/CreateG
 import AdminProductList from './components/Administration/AdminProductList/AdminProductList'
 import CreateProduct from './components/Administration/CreateProduct/CreateProduct'
 import GoldConditionsList from './components/Administration/GoldConditionsList/GoldConditionsList'
+import CreateGoldCondition from './components/Administration/CreateGoldCondition/CreateGoldCondition'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "bootstrap-icons/font/bootstrap-icons.css"
@@ -53,6 +54,7 @@ function App() {
                 <Route path={Path.AdministrationProducts} element={<AdminProductList />} />
                 <Route path={Path.AdministrationProductsCreate} element={<CreateProduct />} />
                 <Route path={Path.AdministrationGoldConditions} element={<GoldConditionsList />} />
+                <Route path={Path.AdministrationGoldConditionsCreate} element={<CreateGoldCondition />} />
                 <Route path='*' element={<PageNotFound />} />
               </Routes>
             </ErrorBoundary>

@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import Form from 'react-bootstrap/Form'
 import { Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
@@ -5,11 +6,20 @@ import { useNavigate } from 'react-router-dom'
 import Path from '../../../paths'
 
 import * as goldPricesService from '../../../services/goldPricesService'
+import * as goldConditionsService from '../../../services/goldConditionsService'
 
 import './CreateGoldPrice.css'
 
 export default function CreateGoldPrice() {
     const navigate = useNavigate()
+    const [goldConditions, setGoldConditions] = useState([])
+    const [goldCondition, setGoldCondition] = useState({})
+
+    useEffect(() => {
+        goldConditionsService.getAll()
+            .then(setGoldConditions)
+            .catch(err => console.error(err))
+    }, [])
 
     const onCreateGoldPriceFormSubmit = (e) => {
         e.preventDefault()
@@ -28,11 +38,18 @@ export default function CreateGoldPrice() {
 
     }
 
+const handleGoldConditionChange = (e) => {
+
+}
+
     return (
         <Form className='create-gold-price-form' onSubmit={onCreateGoldPriceFormSubmit}>
             <Form.Group className='mb-3' controlId='condition'>
                 <Form.Label>Състояние на златото</Form.Label>
-                <Form.Control type='text' placeholder='Въведи състоянието' name='condition' />
+               <Form.Select name='gold-condition' value={goldCondition._id} onChange={handleGoldConditionChange}>
+                    <option value=''>Изберете категория</option>
+                    {goldConditions.map(gC => <option key={gC._id} value={gC._id}>{gC.name}</option>)}
+               </Form.Select>
             </Form.Group>
             <Form.Group className='mb-3' controlId='price'>
                 <Form.Label>Цена за грам</Form.Label>

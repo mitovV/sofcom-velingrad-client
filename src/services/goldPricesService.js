@@ -15,6 +15,18 @@ export const getAll = async () => {
     }
 }
 
+export const deleteById = async (id) => {
+    const url = categoryUrl + id
+
+    try {
+        return await fetch(url, {
+            method: 'DELETE',
+        })
+    } catch (error) {
+        return console.error(error)
+    }
+}
+
 export const create = async (condition, price) => {
     let dataObj = {
         condition,
@@ -29,7 +41,7 @@ export const create = async (condition, price) => {
             },
             body: JSON.stringify(dataObj)
         })
-        
+
     } catch (error) {
         return console.error(error)
     }

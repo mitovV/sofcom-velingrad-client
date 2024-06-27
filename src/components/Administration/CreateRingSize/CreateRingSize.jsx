@@ -6,7 +6,7 @@ import Path from '../../../paths'
 import * as ringSizesService from '../../../services/ringSizesService'
 
 export default function CreateRingSize() {
-    const navidate = useNavigate()
+    const navigate = useNavigate()
     const [label, placeholderData, nameData, btnVariant, btnValue] = ['Размер', 'Въведи рамера', 'size', 'primary', 'Запази']
 
     const onCreateSizeFormHandler = (e) => {
@@ -17,7 +17,7 @@ export default function CreateRingSize() {
         ringSizesService.create(size)
             .then(res => {
                 if (res.status === 201) {
-                    navidate(Path.AdministrationRingSizes)
+                    navigate(Path.AdministrationRingSizes)
                 }
             })
             .catch(err => console.error(err))

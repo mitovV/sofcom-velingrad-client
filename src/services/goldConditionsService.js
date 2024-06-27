@@ -14,3 +14,19 @@ export const getAll = async () => {
         return console.error(message)
     }
 }
+
+export const create = async (name) => {
+
+    try {
+        return await fetch(categoryUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name })
+        })
+
+    } catch (error) {
+        return console.error(error)
+    }
+}
