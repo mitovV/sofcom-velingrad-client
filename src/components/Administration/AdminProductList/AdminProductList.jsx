@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react"
-import Path from "../../../paths"
-import { Nav, Table, Button } from "react-bootstrap"
-import { Link } from "react-router-dom"
+import { useEffect, useState } from 'react'
+import Path from '../../../paths'
+import { Nav, Table, Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 import * as productsService from '../../../services/productsService'
 
@@ -17,16 +17,16 @@ export default function AdminProductList() {
     },[])
 
     return(
-        <div className="admin-product-list-wrapper">
+        <div className='admin-product-list-wrapper'>
         <h2>Списък с продукти</h2>
         <Nav.Link
             as={Link}
-            className="add-new-product"
+            className='add-new-product'
             to={Path.AdministrationProductsCreate}>
             <strong>Добави нов продукт</strong>
         </Nav.Link>
         {products.length > 0 ?
-            <Table striped bordered hover size="sm">
+            <Table striped bordered hover size='sm'>
                 <thead>
                     <tr>
                         <th>Състояние</th>
@@ -41,10 +41,10 @@ export default function AdminProductList() {
                         <td>{product.condition}</td>
                         <td>{product.price}</td>
                         <td>
-                        <Button variant="primary">Промени</Button>
+                        <Button variant='primary'>Промени</Button>
                         </td>
                         <td>
-                        <Button variant="danger">Изтрии</Button>
+                        <Button variant='danger'>Изтрии</Button>
                         </td>
                     </tr>
                 )}

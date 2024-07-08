@@ -13,7 +13,6 @@ import './CreateGoldPrice.css'
 export default function CreateGoldPrice() {
     const navigate = useNavigate()
     const [goldConditions, setGoldConditions] = useState([])
-    const [goldCondition, setGoldCondition] = useState({})
 
     useEffect(() => {
         goldConditionsService.getAll()
@@ -38,15 +37,11 @@ export default function CreateGoldPrice() {
 
     }
 
-const handleGoldConditionChange = (e) => {
-
-}
-
     return (
         <Form className='create-gold-price-form' onSubmit={onCreateGoldPriceFormSubmit}>
             <Form.Group className='mb-3' controlId='condition'>
                 <Form.Label>Състояние на златото</Form.Label>
-               <Form.Select name='gold-condition' value={goldCondition._id} onChange={handleGoldConditionChange}>
+               <Form.Select name='gold-condition'>
                     <option value=''>Изберете категория</option>
                     {goldConditions.map(gC => <option key={gC._id} value={gC._id}>{gC.name}</option>)}
                </Form.Select>

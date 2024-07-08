@@ -15,6 +15,19 @@ export const getAll = async () => {
     }
 }
 
+export const getById = async (id) => {
+    let url = categoryUrl + id
+
+    try {
+        const response = await fetch(url)
+        let data = await response.json()
+        return data
+
+    } catch (message) {
+        return console.error(message)
+    }
+}
+
 export const create = async (name) => {
 
     try {

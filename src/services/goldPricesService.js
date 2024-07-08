@@ -15,6 +15,19 @@ export const getAll = async () => {
     }
 }
 
+export const getById = async (id) => {
+    let url = categoryUrl + id
+
+    try {
+        const response = await fetch(url)
+        let data = await response.json()
+        return data
+
+    } catch (message) {
+        return console.error(message)
+    }
+}
+
 export const deleteById = async (id) => {
     const url = categoryUrl + id
 
@@ -41,6 +54,31 @@ export const create = async (condition, price) => {
             },
             body: JSON.stringify(dataObj)
         })
+
+    } catch (error) {
+        return console.error(error)
+    }
+}
+
+export const update = async (id, condition, price) => {
+    let url = categoryUrl + `${id}`
+
+    let newData = {
+        condition,
+        price
+    }
+
+    try {
+        const response = await fetch(url, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newData)
+        })
+
+        let data = response.json()
+        return data
 
     } catch (error) {
         return console.error(error)

@@ -23,6 +23,7 @@ import AdminProductList from './components/Administration/AdminProductList/Admin
 import CreateProduct from './components/Administration/CreateProduct/CreateProduct'
 import GoldConditionsList from './components/Administration/GoldConditionsList/GoldConditionsList'
 import CreateGoldCondition from './components/Administration/CreateGoldCondition/CreateGoldCondition'
+import EditGoldPrice from './components/Administration/EditGoldPrice/EditGoldPrice'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "bootstrap-icons/font/bootstrap-icons.css"
@@ -51,6 +52,7 @@ function App() {
                 <Route path={Path.AdministrationRingSizesEdit} element={<EditRingSize />} />
                 <Route path={Path.AdministrationGoldPrices} element={<GoldPricesList />} />
                 <Route path={Path.AdministrationGoldPricesCreate} element={<CreateGoldPrice />} />
+                <Route path={Path.AdministrationGoldPricesEdit} element={<EditGoldPrice />} />
                 <Route path={Path.AdministrationProducts} element={<AdminProductList />} />
                 <Route path={Path.AdministrationProductsCreate} element={<CreateProduct />} />
                 <Route path={Path.AdministrationGoldConditions} element={<GoldConditionsList />} />

@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react"
-import { Nav } from "react-bootstrap"
-import { Link } from "react-router-dom"
+import { useEffect, useState } from 'react'
+import { Nav } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
-import BaseListing from "../../Shared/BaseListing/BaseListing"
-import CustomPagination from "../../CustomPagination/CustomPagination"
+import BaseListing from '../../Shared/BaseListing/BaseListing'
+import CustomPagination from '../../CustomPagination/CustomPagination'
 import Path from '../../../paths'
 
 import * as categoriesService from '../../../services/categoriesService'
@@ -39,11 +39,11 @@ export default function CategoriesList() {
     }
 
     return (
-        <div className="categories-wrapper">
+        <div className='categories-wrapper'>
             <h2>Списък с категории</h2>
             <Nav.Link
                 as={Link}
-                className="add-new-category"
+                className='add-new-category'
                 to={Path.AdministrationCategoriesCreate}>
                 <strong>Добави нова категория</strong>
             </Nav.Link>
@@ -58,7 +58,7 @@ export default function CategoriesList() {
                         onDeleteHandler={onDeleteHandler}
                     >
                     </BaseListing>
-                    <div className="pagination-wrapper">
+                    <div className='pagination-wrapper'>
                         <CustomPagination itemsPerPage={itemsPerPage} totalItems={count} paginate={paginate} />
                     </div>
                 </>

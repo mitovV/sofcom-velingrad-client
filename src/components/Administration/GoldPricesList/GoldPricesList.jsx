@@ -53,7 +53,7 @@ export default function GoldPricesList() {
                             <td>{goldPrice.condition.name}</td>
                             <td>{goldPrice.price}</td>
                             <td>
-                            <Button variant="primary">Промени</Button>
+                            <Button as={Link} to={`${Path.AdministrationGoldPricesEdit.split(':id')[0]}${goldPrice._id}`} variant="primary">Промени</Button>
                             </td>
                             <td>
                             <Button id={goldPrice._id} variant="danger" onClick={onDeleteHandler}>Изтрии</Button>
