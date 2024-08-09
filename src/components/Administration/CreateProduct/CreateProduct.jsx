@@ -5,6 +5,7 @@ import { Button, Form, Container, Row, Col } from "react-bootstrap"
 import RingInputs from "./RingInputs/RingInputs"
 import GoldCarat from "./SharedInputs/GoldCarat/GoldCarat"
 import Weight from "./SharedInputs/Weight/Weight" 
+import GSMInputs from "./GSMInputs/GSMInputs"
 
 import * as categoriesService from '../../../services/categoriesService'
 import ImageInput from "./SharedInputs/ImageInput/ImageInput"
@@ -27,7 +28,14 @@ export default function CreateProduct() {
         'Гривни': '',
         'Монети': '',
         'Синджири': '',
-        'Халки': ''
+        'Халки': <RingInputs />,
+        'Техника': '',
+        'GSM': <GSMInputs/>,
+        'Часовници': '',
+        'Аудио и видео': '',
+        'Компютри и периферия': '',
+        'Автомобили и аксесоари':'',
+        'Други': ''
     }
 
     useEffect(() => {
@@ -42,7 +50,7 @@ export default function CreateProduct() {
     }, [])
 
     const generateFields = () => {
-        let res = fields[category.name]
+        let res = fields[category.name] || fields[mainCategory]
 
         if (mainCategory === 'Злато') {
             return (
@@ -69,7 +77,7 @@ export default function CreateProduct() {
         let data = e.target.value.split(' ')
         const selectedCategoryId = data[0]
         let mainCategory = data[1]
-
+        
 
         if (selectedCategoryId) {
             let res = categories.find(c => c._id === selectedCategoryId)
