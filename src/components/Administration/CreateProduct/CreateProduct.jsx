@@ -4,11 +4,12 @@ import { Button, Form, Container, Row, Col } from "react-bootstrap"
 
 import RingInputs from "./RingInputs/RingInputs"
 import GoldCarat from "./SharedInputs/GoldCarat/GoldCarat"
-import Weight from "./SharedInputs/Weight/Weight" 
+import Weight from "./SharedInputs/Weight/Weight"
 import GSMInputs from "./GSMInputs/GSMInputs"
+import ChainInputs from "./ChainInputs/ChainInputs"
+import ImageInput from "./SharedInputs/ImageInput/ImageInput"
 
 import * as categoriesService from '../../../services/categoriesService'
-import ImageInput from "./SharedInputs/ImageInput/ImageInput"
 
 import './CreateProduct.css'
 
@@ -27,14 +28,14 @@ export default function CreateProduct() {
         'Колиета': '',
         'Гривни': '',
         'Монети': '',
-        'Синджири': '',
+        'Синджири': <ChainInputs />,
         'Халки': <RingInputs />,
         'Техника': '',
-        'GSM': <GSMInputs/>,
+        'GSM': <GSMInputs />,
         'Часовници': '',
         'Аудио и видео': '',
         'Компютри и периферия': '',
-        'Автомобили и аксесоари':'',
+        'Автомобили и аксесоари': '',
         'Други': ''
     }
 
@@ -62,7 +63,7 @@ export default function CreateProduct() {
             )
         }
         else if (mainCategory === 'Сребро') {
-            return(
+            return (
                 <>
                     <Weight />
                     {res}
@@ -77,7 +78,7 @@ export default function CreateProduct() {
         let data = e.target.value.split(' ')
         const selectedCategoryId = data[0]
         let mainCategory = data[1]
-        
+
 
         if (selectedCategoryId) {
             let res = categories.find(c => c._id === selectedCategoryId)
