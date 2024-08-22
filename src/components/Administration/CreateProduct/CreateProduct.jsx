@@ -10,6 +10,7 @@ import ChainInputs from "./ChainInputs/ChainInputs"
 import ImageInput from "./SharedInputs/ImageInput/ImageInput"
 import TechniqueInputs from "./TechniqueInputs/TechniqueInputs"
 import WatchesInputs from "./WatchesInputs/WatchesInputs"
+import Price from "./SharedInputs/Price/Price"
 
 import * as categoriesService from '../../../services/categoriesService'
 
@@ -57,23 +58,28 @@ export default function CreateProduct() {
 
         if (mainCategory === 'Злато') {
             return (
-                <>
+                <Form>
                     <Weight />
                     <GoldCarat />
                     {res}
-                </>
+                </Form>
             )
         }
         else if (mainCategory === 'Сребро') {
             return (
-                <>
+                <Form>
                     <Weight />
                     {res}
-                </>
+                </Form>
             )
         }
 
-        return res
+        return (
+            <Form>
+            {res}
+            <Price/>
+            </Form>
+        )
     }
 
     const handleCategoryChange = (e) => {
