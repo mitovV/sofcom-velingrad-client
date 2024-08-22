@@ -8,6 +8,7 @@ import Weight from "./SharedInputs/Weight/Weight"
 import GSMInputs from "./GSMInputs/GSMInputs"
 import ChainInputs from "./ChainInputs/ChainInputs"
 import ImageInput from "./SharedInputs/ImageInput/ImageInput"
+import TechniqueInputs from "./TechniqueInputs/TechniqueInputs"
 
 import * as categoriesService from '../../../services/categoriesService'
 
@@ -30,7 +31,7 @@ export default function CreateProduct() {
         'Монети': '',
         'Синджири': <ChainInputs />,
         'Халки': <RingInputs />,
-        'Техника': '',
+        'Техника': <TechniqueInputs />,
         'GSM': <GSMInputs />,
         'Часовници': '',
         'Аудио и видео': '',
