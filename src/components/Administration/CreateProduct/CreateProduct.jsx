@@ -10,6 +10,7 @@ import ChainInputs from "./ChainInputs/ChainInputs"
 import ImageInput from "./SharedInputs/ImageInput/ImageInput"
 import TechniqueInputs from "./TechniqueInputs/TechniqueInputs"
 import WatchesInputs from "./WatchesInputs/WatchesInputs"
+import Description from "./SharedInputs/Description/Description"
 import Price from "./SharedInputs/Price/Price"
 
 import * as categoriesService from '../../../services/categoriesService'
@@ -35,7 +36,7 @@ export default function CreateProduct() {
         'Халки': <RingInputs />,
         'Техника': <TechniqueInputs />,
         'GSM': <GSMInputs />,
-        'Часовници': <WatchesInputs/>,
+        'Часовници': <WatchesInputs />,
         'Аудио и видео': '',
         'Компютри и периферия': '',
         'Автомобили и аксесоари': '',
@@ -76,8 +77,9 @@ export default function CreateProduct() {
 
         return (
             <Form>
-            {res}
-            <Price/>
+                {res}
+                <Description/>
+                <Price />
             </Form>
         )
     }

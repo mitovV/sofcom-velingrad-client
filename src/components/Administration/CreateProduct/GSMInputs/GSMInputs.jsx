@@ -9,8 +9,6 @@ export default function GSMInputs() {
             <Form.Control type="number" name='ram'></Form.Control>
             <Form.Label>Вътрешна памет</Form.Label>
             <Form.Control type="number" name='rom'></Form.Control>
-            <Form.Label>Описание</Form.Label>
-            <Form.Control name="description" as="textarea" rows={3} />
         </Form.Group>
     )
 }

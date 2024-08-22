@@ -7,8 +7,6 @@ export default function WatchesInputs() {
             <Form.Control type="text" name='brand'></Form.Control>
             <Form.Label>Модел</Form.Label>
             <Form.Control type="text" name='model'></Form.Control>
-            <Form.Label>Описание</Form.Label>
-            <Form.Control name="description" as="textarea" rows={3} />
         </Form.Group>
     )
 }
