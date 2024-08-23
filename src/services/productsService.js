@@ -23,6 +23,14 @@ export const getLatest = async (id) => {
     return arr
 }
 
-export const create = async () => {
-    
+export const create = async (formData) => {     
+    try {
+        return await fetch(categoryUrl, {
+            method: 'POST',
+            body: formData
+        })
+
+    } catch (error) {
+        return console.error(error)
+    }
 }

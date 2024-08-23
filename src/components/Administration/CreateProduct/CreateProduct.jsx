@@ -16,6 +16,7 @@ import Price from "./SharedInputs/Price/Price"
 import Title from "./SharedInputs/Title/Title"
 
 import * as categoriesService from '../../../services/categoriesService'
+import * as productService from '../../../services/productsService'
 
 import './CreateProduct.css'
 
@@ -39,10 +40,10 @@ export default function CreateProduct() {
         'Техника': <TechniqueInputs />,
         'GSM': <GSMInputs />,
         'Часовници': <WatchesInputs />,
-        'Аудио и видео': <Title/>,
-        'Компютри и периферия': <Title/>,
-        'Автомобили и аксесоари': <Title/>,
-        'Други': <Title/>
+        'Аудио и видео': <Title />,
+        'Компютри и периферия': <Title />,
+        'Автомобили и аксесоари': <Title />,
+        'Други': <Title />
     }
 
     useEffect(() => {
@@ -72,7 +73,7 @@ export default function CreateProduct() {
             return (
                 <Form.Group>
                     <Weight />
-                    <SilverCarat/>
+                    <SilverCarat />
                     {res}
                 </Form.Group>
             )
@@ -81,7 +82,7 @@ export default function CreateProduct() {
         return (
             <Form.Group>
                 {res}
-                <Description/>
+                <Description />
                 <Price />
             </Form.Group>
         )
@@ -104,23 +105,80 @@ export default function CreateProduct() {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        let weight, size, goldCarat, silverCarat, title, model, brand, ram, rom
-  
+        let categoryId, categoryName, material, weight, size, goldCarat, silverCarat, title, model, brand, ram, rom, price, description
+
+        categoryId = category._id.split(' ')[0]
+        categoryName = category.name
+
+        const formData = new FormData()
+        formData.append('categoryId', categoryId)
+        formData.append('categoryName', categoryName)
+        
+
         if (['Мъжки', 'Дамски', 'Детски'].includes(category.name)) {
             weight = e.target.weight.value
             size = e.target.size.value
+            formData.append('weight', weight)
+            formData.append('size', size)
         }
         if (mainCategory === 'Злато') {
-            carat = e.target.carat.value
+            goldCarat = e.target.carat.value
+            material = mainCategory
+            formData.append('goldCarat', goldCarat)
+            formData.append('material', material)
         }
+        else if (mainCategory === 'Сребро') {
+            silverCarat = e.target.carat.value
+            material = mainCategory
+            formData.append('silverCarat', silverCarat)
+            formData.append('material', material)
+        }
+        else if (mainCategory === 'GSM') {
+            model = e.target.model.value
+            ram = e.target.ram.value
+            rom = e.target.rom.value
+            price = e.target.price.value
+            description = e.target.description.value
 
+            formData.append('model', model)
+            formData.append('ram', ram)
+            formData.append('rom', rom)
+            formData.append('price', price)
+            formData.append('description', description)
+        }
+        else if (mainCategory === 'Часовници') {
+            brand = e.target.brand.value
+            model = e.target.model.value
+            description = e.target.description.value
+            price = e.target.price.value
 
+            formData.append('brand', brand)
+            formData.append('model', model)
+            formData.append('description', description)
+            formData.append('price', price)
+        }
+        else if (mainCategory === 'Аудио'
+            || mainCategory === 'Компютри'
+            || mainCategory === 'Автомобили'
+            || mainCategory === 'Други') {
+            title = e.target.title.value
+            description = e.target.description.value
+            price = e.target.price.value
+            
+            formData.append('title', title)
+            formData.append('description', description)
+            formData.append('price', price)
+        }
 
         let firstImage = e.target.firstImage.files[0]
         let secondImage = e.target.secondImage.files[0]
         let thirdImage = e.target.thirdImage.files[0]
-
-        //productService.create()
+        
+        formData.append('firstImage', firstImage)
+        formData.append('secondImage', secondImage)
+        formData.append('thirdImage', thirdImage)
+        
+        productService.create(formData)
     }
 
     const CategoryOptions = ({ categoriesData, categoryPath, level = 0 }) => {
