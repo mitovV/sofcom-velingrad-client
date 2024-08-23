@@ -12,6 +12,7 @@ import TechniqueInputs from "./TechniqueInputs/TechniqueInputs"
 import WatchesInputs from "./WatchesInputs/WatchesInputs"
 import Description from "./SharedInputs/Description/Description"
 import Price from "./SharedInputs/Price/Price"
+import Title from "./SharedInputs/Title/Title"
 
 import * as categoriesService from '../../../services/categoriesService'
 
@@ -37,10 +38,10 @@ export default function CreateProduct() {
         'Техника': <TechniqueInputs />,
         'GSM': <GSMInputs />,
         'Часовници': <WatchesInputs />,
-        'Аудио и видео': '',
-        'Компютри и периферия': '',
-        'Автомобили и аксесоари': '',
-        'Други': ''
+        'Аудио и видео': <Title/>,
+        'Компютри и периферия': <Title/>,
+        'Автомобили и аксесоари': <Title/>,
+        'Други': <Title/>
     }
 
     useEffect(() => {
