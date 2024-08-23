@@ -4,6 +4,7 @@ import { Button, Form, Container, Row, Col } from "react-bootstrap"
 
 import RingInputs from "./RingInputs/RingInputs"
 import GoldCarat from "./SharedInputs/GoldCarat/GoldCarat"
+import SilverCarat from "./SharedInputs/SilverCarat/SilverCarat"
 import Weight from "./SharedInputs/Weight/Weight"
 import GSMInputs from "./GSMInputs/GSMInputs"
 import ChainInputs from "./ChainInputs/ChainInputs"
@@ -60,28 +61,29 @@ export default function CreateProduct() {
 
         if (mainCategory === 'Злато') {
             return (
-                <Form>
+                <Form.Group>
                     <Weight />
                     <GoldCarat />
                     {res}
-                </Form>
+                </Form.Group>
             )
         }
         else if (mainCategory === 'Сребро') {
             return (
-                <Form>
+                <Form.Group>
                     <Weight />
+                    <SilverCarat/>
                     {res}
-                </Form>
+                </Form.Group>
             )
         }
 
         return (
-            <Form>
+            <Form.Group>
                 {res}
                 <Description/>
                 <Price />
-            </Form>
+            </Form.Group>
         )
     }
 
@@ -102,13 +104,17 @@ export default function CreateProduct() {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
+        let weight, size, goldCarat, silverCarat, title, model, brand, ram, rom
+  
         if (['Мъжки', 'Дамски', 'Детски'].includes(category.name)) {
-            let weight = e.target.weight.value
-            let size = e.target.size.value
+            weight = e.target.weight.value
+            size = e.target.size.value
         }
         if (mainCategory === 'Злато') {
-            let carat = e.target.carat.value
+            carat = e.target.carat.value
         }
+
+
 
         let firstImage = e.target.firstImage.files[0]
         let secondImage = e.target.secondImage.files[0]
