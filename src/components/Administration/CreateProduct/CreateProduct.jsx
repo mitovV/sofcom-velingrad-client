@@ -113,6 +113,7 @@ export default function CreateProduct() {
         const formData = new FormData()
         formData.append('categoryId', categoryId)
         formData.append('categoryName', categoryName)
+        formData.append('mainCategory', mainCategory)
         
 
         if (['Мъжки', 'Дамски', 'Детски'].includes(category.name)) {
