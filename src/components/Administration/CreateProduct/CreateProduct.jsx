@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import React from "react"
 import { Button, Form, Container, Row, Col } from "react-bootstrap"
 
@@ -14,6 +15,7 @@ import WatchesInputs from "./WatchesInputs/WatchesInputs"
 import Description from "./SharedInputs/Description/Description"
 import Price from "./SharedInputs/Price/Price"
 import Title from "./SharedInputs/Title/Title"
+import Path from '../../../paths'
 
 import * as categoriesService from '../../../services/categoriesService'
 import * as productService from '../../../services/productsService'
@@ -21,10 +23,12 @@ import * as productService from '../../../services/productsService'
 import './CreateProduct.css'
 
 export default function CreateProduct() {
+    const navigate = useNavigate()
     const [mainCategories, setMainCategories] = useState([])
     const [categories, setCategories] = useState([])
     const [category, setCategory] = useState({})
     const [mainCategory, setMainCategory] = useState('')
+    
 
     const fields = {
         'Дамски': <RingInputs />,
@@ -114,7 +118,7 @@ export default function CreateProduct() {
         formData.append('categoryId', categoryId)
         formData.append('categoryName', categoryName)
         formData.append('mainCategory', mainCategory)
-        
+
 
         if (['Мъжки', 'Дамски', 'Детски'].includes(category.name)) {
             weight = e.target.weight.value
@@ -165,7 +169,7 @@ export default function CreateProduct() {
             title = e.target.title.value
             description = e.target.description.value
             price = e.target.price.value
-            
+
             formData.append('title', title)
             formData.append('description', description)
             formData.append('price', price)
@@ -174,12 +178,18 @@ export default function CreateProduct() {
         let firstImage = e.target.firstImage.files[0]
         let secondImage = e.target.secondImage.files[0]
         let thirdImage = e.target.thirdImage.files[0]
-        
+
         formData.append('firstImage', firstImage)
         formData.append('secondImage', secondImage)
         formData.append('thirdImage', thirdImage)
-        
+
         productService.create(formData)
+            .then(res => {
+                if (res.status === 201) {
+                    navigate(Path.AdministrationProducts)
+                }
+            })
+            .catch(err => console.error(err))
     }
 
     const CategoryOptions = ({ categoriesData, categoryPath, level = 0 }) => {
