@@ -27,7 +27,7 @@ export default function Home() {
                             <Card key={p._id} style={{ width: '15rem' }}>
                                 <Card.Img className="photo" src={`http://localhost:5000/${p.images[0]}`} />
                                 <Card.Body>
-                                    <Button variant="primary">Детайли</Button>
+                                    <Button className="home-details-btn">Детайли</Button>
                                 </Card.Body>
                             </Card>
                         </Col>

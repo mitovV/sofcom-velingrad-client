@@ -14,4 +14,10 @@
 }
 .card {
     margin-top: 10px;
+    border-color: #C5FF95 !important;
+}
+.home-details-btn{
+    background-color: #C5FF95 !important;
+    border-color: #C5FF95 !important;
+    color: black !important;
 }
