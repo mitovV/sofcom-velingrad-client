@@ -7,6 +7,8 @@ import Path from '../../paths'
 
 import * as categoriesService from '../../services/categoriesService'
 
+import './Sidebar.css'
+
 export default function Sidebar() {
     const [categories, setCategories] = useState([])
 
