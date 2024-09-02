@@ -1,4 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
+import Button from 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Card'
+import { Row, Col } from "react-bootstrap"
 
 import * as productService from '../../services/productsService'
 
@@ -14,7 +17,23 @@ export default function Home() {
 
     if (products.length > 0) {
         return (
-            <h4>Some products here.....</h4>
+            <>
+                <div className="lates-product-wrapper">
+                    <h3 className="home-title">Последно добавени продукти</h3>
+                </div>
+                <Row>
+                    {products.map(p =>
+                        <Col>
+                            <Card key={p._id} style={{ width: '15rem' }}>
+                                <Card.Img className="photo" src={`http://localhost:5000/${p.images[0]}`} />
+                                <Card.Body>
+                                    <Button variant="primary">Детайли</Button>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    )}
+                </Row>
+            </>
         )
     }
     else {

@@ -18,9 +18,15 @@ export const getAllByCategoryId = async (id) => {
     return arr
 }
 
-export const getLatest = async (id) => {
-    let arr = []
-    return arr
+export const getLatest = async () => {
+    let url = categoryUrl + 'latest'
+    try {
+            const response = await fetch(url)
+            let data = await response.json()
+            return data
+    } catch (message) {
+        return console.error(message)
+    }
 }
 
 export const create = async (formData) => {     
