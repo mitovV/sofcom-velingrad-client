@@ -13,8 +13,8 @@ export default function GoldCondition() {
     }, [])
 
     return (
-        <Form.Select name='gold-condition'>
-            <option value=''>Изберете категория</option>
+        <Form.Select name='condition'>
+            <option value=''>Изберете вид на златото</option>
             {goldConditions.map(gC => <option key={gC._id} value={gC._id}>{gC.name}</option>)}
         </Form.Select>
     )

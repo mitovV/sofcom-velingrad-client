@@ -21,6 +21,7 @@ import * as categoriesService from '../../../services/categoriesService'
 import * as productService from '../../../services/productsService'
 
 import './CreateProduct.css'
+import GoldCondition from "./SharedInputs/GoldCondition/GoldCondition"
 
 export default function CreateProduct() {
     const navigate = useNavigate()
@@ -69,6 +70,7 @@ export default function CreateProduct() {
                 <Form.Group>
                     <Weight />
                     <GoldCarat />
+                    <GoldCondition/>
                     {res}
                 </Form.Group>
             )
@@ -109,7 +111,7 @@ export default function CreateProduct() {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        let categoryId, categoryName, material, weight, size, goldCarat, silverCarat, title, model, brand, ram, rom, price, description
+        let categoryId, categoryName, material, weight, size, goldCarat, condition,silverCarat, title, model, brand, ram, rom, price, description
 
         categoryId = category._id.split(' ')[0]
         categoryName = category.name
@@ -127,14 +129,20 @@ export default function CreateProduct() {
             formData.append('size', size)
         }
         if (mainCategory === 'Злато') {
+            weight = e.target.weight.value
             goldCarat = e.target.carat.value
             material = mainCategory
+            condition = e.target.condition.value
+            formData.append('weight', weight)
             formData.append('goldCarat', goldCarat)
             formData.append('material', material)
+            formData.append('condition', condition)
         }
         else if (mainCategory === 'Сребро') {
+            weight = e.target.weight.value
             silverCarat = e.target.carat.value
             material = mainCategory
+            formData.append('weight', weight)
             formData.append('silverCarat', silverCarat)
             formData.append('material', material)
         }
