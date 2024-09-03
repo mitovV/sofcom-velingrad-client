@@ -111,7 +111,7 @@ export default function CreateProduct() {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        let categoryId, categoryName, material, weight, size, goldCarat, condition,silverCarat, title, model, brand, ram, rom, price, description
+        let categoryId, categoryName, material, weight, size, goldCarat, condition, silverCarat, title, model, brand, ram, rom, price, description
 
         categoryId = category._id.split(' ')[0]
         categoryName = category.name

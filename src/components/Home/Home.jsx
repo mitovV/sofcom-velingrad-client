@@ -23,8 +23,8 @@ export default function Home() {
                 </div>
                 <Row>
                     {products.map(p =>
-                        <Col>
-                            <Card key={p._id} style={{ width: '15rem' }}>
+                        <Col key={p._id}>
+                            <Card style={{ width: '15rem' }}>
                                 <Card.Img className="photo" src={`http://localhost:5000/${p.images[0]}`} />
                                 <Card.Body>
                                     <Button className="home-details-btn">Детайли</Button>
