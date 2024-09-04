@@ -8,17 +8,24 @@ import * as categoriesService from '../../services/categoriesService'
 
 
 export default function ProductList() {
-    const { id } = useParams()
+    const { '*': data } = useParams()
+    const ids = data.split('/')
+    const id = ids[ids.length-1]
     const [products, setProducts] = useState([])
-    const [category, setCategory] = useState({})
+    let [categories, setCategories] = useState([])
 
-    useEffect(() => {
+    useEffect(() => {        
         productsService.getAllByCategoryId(id)
             .then(setProducts)
+            .catch(err => console.error(err))
 
-        categoriesService.getById(id)
-            .then(setCategory)
-    }, [id])
+            setCategories([]);
+        
+            Promise.all(ids.map(element => categoriesService.getById(element)))
+                .then(responses => setCategories(responses))
+                .catch(err => console.error(err));
+
+    }, [id, data])
 
     if (products.length > 0) {
         return (
@@ -28,7 +35,7 @@ export default function ProductList() {
     }
     else {
         return (
-          <ListingProductsByCategory name={category.name}/>
+          <ListingProductsByCategory categories={categories}/>
         )
     }
 }

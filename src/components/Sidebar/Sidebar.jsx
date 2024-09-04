@@ -23,12 +23,13 @@ export default function Sidebar() {
         if (category.subCategories && category.subCategories.length > 0) {
             return (
                 <NavDropdown key={uniqueId} title={category.name} id={`nav-dropdown-${uniqueId}`}>
-                    {category.subCategories.map(subcategory => renderCategory(subcategory, category._id))}
+                    {category.subCategories.map(subcategory => renderCategory(subcategory, parentId ? parentId + '/' + category._id : category._id))}
                 </NavDropdown>
             )
         }
         else {
-            return (<Nav.Link as={Link} key={uniqueId} to={Path.CategoriesProducts.replace(':id', category._id)}>
+            return (
+            <Nav.Link as={Link} key={uniqueId} to={Path.CategoriesProducts.replace('*', (parentId ? parentId + '/' : '') + category._id)}>
                 {category.name}
             </Nav.Link>)
         }

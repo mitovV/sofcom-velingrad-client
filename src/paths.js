@@ -2,7 +2,7 @@ const AdministrationHome = '/administration/'
 
 const Path = {
     Home: '/',
-    CategoriesProducts: 'categories/:id/products',
+    CategoriesProducts: 'categories/products/*',
     AdministrationHome: AdministrationHome,
     AdministrationCategoriesAll: AdministrationHome +'categories/all',
     AdministrationCategoriesCreate: AdministrationHome + 'categories/create',
