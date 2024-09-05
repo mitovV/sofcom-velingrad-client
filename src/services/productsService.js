@@ -13,23 +13,30 @@ export const all = async () => {
     }
 }
 
-export const getAllByCategoryId = async (id) => {
-    let arr = []
-    return arr
-}
+export const getAllByCategoryId = async (id, material) => {
+    let url = categoryUrl + id + (material ? '/' + material : '')
 
-export const getLatest = async () => {
-    let url = categoryUrl + 'latest'
     try {
-            const response = await fetch(url)
-            let data = await response.json()
-            return data
+        const response = await fetch(url)
+        let data = await response.json()
+        return data
     } catch (message) {
         return console.error(message)
     }
 }
 
-export const create = async (formData) => {     
+export const getLatest = async () => {
+    let url = categoryUrl + 'latest'
+    try {
+        const response = await fetch(url)
+        let data = await response.json()
+        return data
+    } catch (message) {
+        return console.error(message)
+    }
+}
+
+export const create = async (formData) => {
     try {
         return await fetch(categoryUrl, {
             method: 'POST',
