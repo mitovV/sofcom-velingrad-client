@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import { Row, Col } from "react-bootstrap"
 
+import config from "../../config/config"
 import * as productService from '../../services/productsService'
 
 import './Home.css'
@@ -25,7 +26,7 @@ export default function Home() {
                     {products.map(p =>
                         <Col key={p._id}>
                             <Card style={{ width: '15rem' }}>
-                                <Card.Img className="photo" src={`http://localhost:5000/${p.images[0]}`} />
+                                <Card.Img className="home-photo" src={config.BASE_PICTURE_URL + p.images[0]} />
                                 <Card.Body>
                                     <Button className="home-details-btn">Детайли</Button>
                                 </Card.Body>
