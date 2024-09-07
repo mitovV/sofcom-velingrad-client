@@ -1,11 +1,10 @@
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 
-import ListingProductsByCategory from "../ListingProductsByCategory/ListingProductsByCategory"
-
 import * as productsService from '../../services/productsService'
 import * as categoriesService from '../../services/categoriesService'
 
+import './ProductList.css'
 
 export default function ProductList() {
     const { '*': data } = useParams()
@@ -40,14 +39,20 @@ export default function ProductList() {
     }, [id, data])
 
     if (products?.length > 0) {
-        return (
-            //TODO: List products
-            <h4>There is some products</h4>
-        )
+        if (categories[0] ===  'Злато') {
+            return (
+                //TODO: List products
+                <h4>There is some products</h4>
+            )
+            
+        }
     }
     else {
         return (
-            <ListingProductsByCategory categories={categories} />
+            <div className="product-category-wrapper">
+            <h2>{categories.map(n => n.name + ' ')}</h2>
+            <h3>Все още няма продукти в тази категория!</h3>
+        </div>
         )
     }
 }
