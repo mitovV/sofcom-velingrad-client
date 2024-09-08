@@ -29,6 +29,7 @@ export default function Home() {
                                 <Card.Img className="home-photo" src={config.BASE_PICTURE_URL + p.images[0]} />
                                 <Card.Body>
                                     <Button className="home-details-btn">Детайли</Button>
+                                     {p.price ? <Button className="home-price-btn">{p.price.toFixed(2)}лв.</Button> : ''}  
                                 </Card.Body>
                             </Card>
                         </Col>
