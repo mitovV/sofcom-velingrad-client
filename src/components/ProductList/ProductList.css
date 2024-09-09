@@ -1,0 +1,7 @@
+.product-photo {
+    height: 200px !important;
+    width: 200px !important; 
+}
+.product-card{
+    flex: none;
+}

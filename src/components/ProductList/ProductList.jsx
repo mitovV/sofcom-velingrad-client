@@ -9,7 +9,7 @@ import ProductCategoryTitle from "./ProductCategoryTitle/ProductCategoryTitle"
 import * as productsService from '../../services/productsService'
 import * as categoriesService from '../../services/categoriesService'
 
-import './Product.css'
+import './ProductList.css'
 
 export default function ProductList() {
     const { '*': data } = useParams()
@@ -45,16 +45,14 @@ export default function ProductList() {
 
     if (products?.length > 0) {
         if (categories[0]?.name === 'Злато') {
-            console.log(products);
-            
             return (
                 <>
                     <ProductCategoryTitle categories={categories}
                         message={`В тази категория има ${products.length} ${products.length > 1 ? 'продукта' : 'продукт'}!`} />
                     <CardGroup>
                         {products.map(p =>
-                            <Card>
-                                <Card.Img className="product-photo" variant="top" src={config.BASE_PICTURE_URL + p.images[0]} />
+                            <Card key={p._id} className="product-card" style={{ width: '15rem' }}>
+                                <Card.Img className="product-photo" src={config.BASE_PICTURE_URL + p.images[0]} />
                                 <Card.Body>
                                     <Card.Title>{p.goldCalcPrice.toFixed(2)}/лв.</Card.Title>
                                     <Card.Text>
