@@ -17,22 +17,30 @@ export default function ProductList() {
     const id = ids[ids.length - 1]
     const [products, setProducts] = useState([])
     const [categories, setCategories] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-
-        setCategories([]);
+        setCategories([])
+        setLoading(true)
 
         Promise.all(ids.map(element => categoriesService.getById(element)))
-            .then(responses => setCategories(responses))
-            .catch(err => console.error(err));
+            .then(responses => {
+                setCategories(responses)
+                setLoading(false)
+            })
+            .catch(err => {
+                console.error(err)
+                setLoading(false)
+            })
+    }, [id, data])
 
+    useEffect(() => {
         if (categories.length > 0) {
             let material
 
-            if (categories[0].name === 'Злато') {
+            if (categories[0]?.name === 'Злато') {
                 material = 'Злато'
-            }
-            else if (categories[0].name === 'Сребро') {
+            } else if (categories[0]?.name === 'Сребро') {
                 material = 'Сребро'
             }
 
@@ -40,8 +48,11 @@ export default function ProductList() {
                 .then(setProducts)
                 .catch(err => console.error(err))
         }
+    }, [categories, id])
 
-    }, [id, data])
+    if (loading) {
+        return <p>Зареждане...</p>
+    }
 
     if (products?.length > 0) {
         if (categories[0]?.name === 'Злато') {
