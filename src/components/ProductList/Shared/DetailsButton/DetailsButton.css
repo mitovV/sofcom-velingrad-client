@@ -1,10 +1,11 @@
-.details-btn{
-    color: black;
-    background-color: #C5FF95;
-    border-color: #C5FF95;
+.details-btn {
+    color: black !important;
+    background-color: #C5FF95 !important;
+    border-color: #C5FF95 !important;
 }
 
-.details-btn:hover{
-    background-color: yellowgreen;
-    border-color: yellow;
+.details-btn:hover {
+    color: white !important;
+    background-color: yellowgreen !important;
+    border-color: yellow !important;
 }

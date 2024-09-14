@@ -1,8 +1,10 @@
 import { Card } from "react-bootstrap"
 
+import './CardFooter.css'
+
 export default function CardFooter({data}){
     return(
-        <Card.Footer>
+        <Card.Footer className="card-footer">
         <small className="text-muted">
             Добавен на {new Date(data).toLocaleString('bg-BG', {
                 year: 'numeric',
