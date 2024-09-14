@@ -8,6 +8,7 @@ import * as productsService from '../../services/productsService'
 import * as categoriesService from '../../services/categoriesService'
 
 import './ProductList.css'
+import WatchesCard from "./WatchesCard/WatchesCard"
 
 export default function ProductList() {
     const { '*': data } = useParams()
@@ -91,6 +92,7 @@ export default function ProductList() {
                 <>
                     <ProductCategoryTitle categories={categories}
                         message={`В тази категория има ${products.length} ${products.length > 1 ? 'продукта' : 'продукт'}!`} />
+                        <WatchesCard products={products}/>
                 </>
             )
         }
