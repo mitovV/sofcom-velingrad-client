@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
+import Spinner from 'react-bootstrap/Spinner'
 
 import ProductCategoryTitle from "./ProductCategoryTitle/ProductCategoryTitle"
 import GoldCard from "./GoldCard/GoldCard"
@@ -50,7 +51,9 @@ export default function ProductList() {
     }, [categories, id])
 
     if (loading) {
-        return <p>Зареждане...</p>
+        return <Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </Spinner>
     }
 
     if (products?.length > 0) {
@@ -92,7 +95,7 @@ export default function ProductList() {
                 <>
                     <ProductCategoryTitle categories={categories}
                         message={`В тази категория има ${products.length} ${products.length > 1 ? 'продукта' : 'продукт'}!`} />
-                        <WatchesCard products={products}/>
+                    <WatchesCard products={products} />
                 </>
             )
         }
