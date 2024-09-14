@@ -1,9 +1,8 @@
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
-import { Row, Col,Card, CardGroup } from "react-bootstrap"
 
-import config from "../../config/config"
 import ProductCategoryTitle from "./ProductCategoryTitle/ProductCategoryTitle"
+import GoldCard from "./GoldCard/GoldCard"
 
 import * as productsService from '../../services/productsService'
 import * as categoriesService from '../../services/categoriesService'
@@ -59,36 +58,7 @@ export default function ProductList() {
                 <>
                     <ProductCategoryTitle categories={categories}
                         message={`В тази категория има ${products.length} ${products.length > 1 ? 'продукта' : 'продукт'}!`} />
-                    <CardGroup>
-                        <Row>
-                            {products.map(p =>
-                                <Col>
-                                    <Card key={p._id} className="product-card" style={{ width: '15rem' }}>
-                                        <Card.Img className="product-photo" src={config.BASE_PICTURE_URL + p.images[0]} />
-                                        <Card.Body>
-                                            <Card.Title>{p.goldCalcPrice.toFixed(2)}/лв.</Card.Title>
-                                            <Card.Text>
-                                                This is a wider card with supporting text below as a natural lead-in
-                                                to additional content. This content is a little bit longer.
-                                            </Card.Text>
-                                        </Card.Body>
-                                        <Card.Footer>
-                                            <small className="text-muted">
-                                                Добавен на {new Date(p.createdOn).toLocaleString('bg-BG', {
-                                                    year: 'numeric',
-                                                    month: 'long',
-                                                    day: 'numeric',
-                                                    hour: '2-digit',
-                                                    minute: '2-digit',
-                                                    second: '2-digit',
-                                                })}
-                                            </small>
-                                        </Card.Footer>
-                                    </Card>
-                                </Col>
-                            )}
-                        </Row>
-                    </CardGroup>
+                    <GoldCard products={products} categories={categories} />
                 </>
             )
         }

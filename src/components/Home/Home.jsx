@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import { Row, Col } from "react-bootstrap"
+import { Link } from "react-router-dom"
 
 import config from "../../config/config"
 import * as productService from '../../services/productsService'
@@ -28,7 +29,7 @@ export default function Home() {
                             <Card style={{ width: '15rem' }}>
                                 <Card.Img className="home-photo" src={config.BASE_PICTURE_URL + p.images[0]} />
                                 <Card.Body>
-                                    <Button className="home-details-btn">Детайли</Button>
+                                <Link to={`/products/details/${p._id}`}> <Button className="home-details-btn">Детайли</Button></Link>
                                      {p.price ? <Button className="home-price-btn">{p.price.toFixed(2)}лв.</Button> : ''}  
                                 </Card.Body>
                             </Card>
