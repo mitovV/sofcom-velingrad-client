@@ -1,9 +1,9 @@
 import { Row, Col, Card, CardGroup } from "react-bootstrap"
+
 import DetailsButton from "../Shared/DetailsButton/DetailsButton"
+import CardFooter from "../Shared/CardFooter/CardFooter"
 
 import config from "../../../config/config"
-
-import './GoldCard.css'
 
 export default function GoldCard({ products, categories }) {
     return (
@@ -22,18 +22,7 @@ export default function GoldCard({ products, categories }) {
                                     <Card.Title>💍Размер: {p?.size?.size}</Card.Title> : ''}
                                 <DetailsButton id={p._id}/>
                             </Card.Body>
-                            <Card.Footer>
-                                <small className="text-muted">
-                                    Добавен на {new Date(p.createdOn).toLocaleString('bg-BG', {
-                                        year: 'numeric',
-                                        month: 'long',
-                                        day: 'numeric',
-                                        hour: '2-digit',
-                                        minute: '2-digit',
-                                        second: '2-digit',
-                                    })}
-                                </small>
-                            </Card.Footer>
+                           <CardFooter data={p.createdOn}/>
                         </Card>
                     </Col>
                 )}
