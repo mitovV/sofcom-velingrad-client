@@ -1,5 +1,5 @@
-import { Row, Col, Card, CardGroup, Button } from "react-bootstrap"
-import { Link } from "react-router-dom"
+import { Row, Col, Card, CardGroup } from "react-bootstrap"
+import DetailsButton from "../Shared/DetailsButton/DetailsButton"
 
 import config from "../../../config/config"
 
@@ -20,7 +20,7 @@ export default function GoldCard({ products, categories }) {
                                 {['Дамски', 'Мъжки', 'Детски']
                                     .includes(categories[categories.length - 1].name) ?
                                     <Card.Title>💍Размер: {p?.size?.size}</Card.Title> : ''}
-                                <Link to={`/products/details/${p?._id}`}><Button className="details-btn">Детайли</Button></Link>
+                                <DetailsButton id={p._id}/>
                             </Card.Body>
                             <Card.Footer>
                                 <small className="text-muted">
