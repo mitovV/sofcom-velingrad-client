@@ -7,6 +7,6 @@ import './DetailsButton.css'
 
 export default function DetailsButton({id}) {
     return(
-        <Link to={Path.ProductsDetails + id}><Button className="details-btn">Детайли</Button></Link>
+        <Link to={Path.ProductsDetails.replace(':id', id)}><Button className="details-btn">Детайли</Button></Link>
     )
 }
