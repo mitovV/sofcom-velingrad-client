@@ -1,4 +1,4 @@
-import { Row, Col, Card, CardGroup, Button } from "react-bootstrap"
+import { Row, Col, Card, CardGroup } from "react-bootstrap"
 
 import CardFooter from "../Shared/CardFooter/CardFooter"
 import DetailsButton from "../Shared/DetailsButton/DetailsButton"

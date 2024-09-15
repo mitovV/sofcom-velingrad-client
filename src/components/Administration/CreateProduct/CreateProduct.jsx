@@ -173,7 +173,8 @@ export default function CreateProduct() {
         else if (mainCategory === 'Аудио'
             || mainCategory === 'Компютри'
             || mainCategory === 'Автомобили'
-            || mainCategory === 'Други') {
+            || mainCategory === 'Други'
+            || mainCategory === 'Техника') {
             title = e.target.title.value
             description = e.target.description.value
             price = e.target.price.value
