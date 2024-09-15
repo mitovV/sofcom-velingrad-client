@@ -7,6 +7,7 @@ import GoldCard from "./GoldCard/GoldCard"
 import WatchesCard from "./WatchesCard/WatchesCard"
 import TechniqueCard from "./TechniqueCard/TechniqueCard"
 import GSMCard from "./GSMCard/GSMCard"
+import AudioAndVideoCard from "./AudioAndVideoCard/AudioAndVideoCard"
 
 import * as productsService from '../../services/productsService'
 import * as categoriesService from '../../services/categoriesService'
@@ -81,7 +82,7 @@ export default function ProductList() {
                 <>
                     <ProductCategoryTitle categories={categories}
                         message={`В тази категория има ${products.length} ${products.length > 1 ? 'продукта' : 'продукт'}!`} />
-                        <TechniqueCard products={products}/>
+                    <TechniqueCard products={products} />
                 </>
             )
         }
@@ -90,7 +91,7 @@ export default function ProductList() {
                 <>
                     <ProductCategoryTitle categories={categories}
                         message={`В тази категория има ${products.length} ${products.length > 1 ? 'продукта' : 'продукт'}!`} />
-                        <GSMCard products={products}/>
+                    <GSMCard products={products} />
                 </>
             )
         }
@@ -108,6 +109,7 @@ export default function ProductList() {
                 <>
                     <ProductCategoryTitle categories={categories}
                         message={`В тази категория има ${products.length} ${products.length > 1 ? 'продукта' : 'продукт'}!`} />
+                    <AudioAndVideoCard products={products} />
                 </>
             )
         }
