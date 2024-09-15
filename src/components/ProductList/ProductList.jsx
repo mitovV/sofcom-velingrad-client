@@ -4,13 +4,14 @@ import Spinner from 'react-bootstrap/Spinner'
 
 import ProductCategoryTitle from "./ProductCategoryTitle/ProductCategoryTitle"
 import GoldCard from "./GoldCard/GoldCard"
+import WatchesCard from "./WatchesCard/WatchesCard"
+import TechniqueCard from "./TechniqueCard/TechniqueCard"
+import GSMCard from "./GSMCard/GSMCard"
 
 import * as productsService from '../../services/productsService'
 import * as categoriesService from '../../services/categoriesService'
 
 import './ProductList.css'
-import WatchesCard from "./WatchesCard/WatchesCard"
-import TechniqueCard from "./TechniqueCard/TechniqueCard"
 
 export default function ProductList() {
     const { '*': data } = useParams()
@@ -89,6 +90,7 @@ export default function ProductList() {
                 <>
                     <ProductCategoryTitle categories={categories}
                         message={`В тази категория има ${products.length} ${products.length > 1 ? 'продукта' : 'продукт'}!`} />
+                        <GSMCard products={products}/>
                 </>
             )
         }
