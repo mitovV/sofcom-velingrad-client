@@ -9,6 +9,7 @@ import TechniqueCard from "./TechniqueCard/TechniqueCard"
 import GSMCard from "./GSMCard/GSMCard"
 import AudioAndVideoCard from "./AudioAndVideoCard/AudioAndVideoCard"
 import ComputersAndPeripheralsCard from "./ComputersAndPeripheralsCard/ComputersAndPeripheralsCard"
+import CarsAndAccessoriesCard from "./CarsAndAccessoriesCard/CarsAndAccessoriesCard"
 
 import * as productsService from '../../services/productsService'
 import * as categoriesService from '../../services/categoriesService'
@@ -128,6 +129,7 @@ export default function ProductList() {
                 <>
                     <ProductCategoryTitle categories={categories}
                         message={`В тази категория има ${products.length} ${products.length > 1 ? 'продукта' : 'продукт'}!`} />
+                        <CarsAndAccessoriesCard products={products}/>
                 </>
             )
         }
