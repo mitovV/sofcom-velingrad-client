@@ -13,6 +13,18 @@ export const all = async () => {
     }
 }
 
+export const getById = async (id) => {
+    let url = categoryUrl + 'details/' + id
+
+    try {
+        const response = await fetch(url)
+        let data = await response.json()
+        return data
+    } catch (message) {
+        return console.error(message)
+    }
+}
+
 export const getAllByCategoryId = async (id, material) => {
     let url = categoryUrl + id + (material ? '/' + material : '')
 

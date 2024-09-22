@@ -1,0 +1,12 @@
+.product-details-img {
+    height: 500px !important;
+}
+.carousel-wrapper {
+    width: 800px;
+}
+
+@media only screen and (max-width: 768px) {
+   .carousel-wrapper {
+    width:auto;
+   }
+}

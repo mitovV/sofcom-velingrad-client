@@ -57,9 +57,11 @@ export default function ProductList() {
     }, [categories, id])
 
     if (loading) {
-        return <Spinner animation="border" role="status">
-            <span className="visually-hidden">Loading...</span>
-        </Spinner>
+        return (
+            <Spinner animation="border" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </Spinner>
+        )
     }
 
     if (products?.length > 0) {
@@ -121,7 +123,7 @@ export default function ProductList() {
                 <>
                     <ProductCategoryTitle categories={categories}
                         message={`В тази категория има ${products.length} ${products.length > 1 ? 'продукта' : 'продукт'}!`} />
-                        <ComputersAndPeripheralsCard products={products}/>
+                    <ComputersAndPeripheralsCard products={products} />
                 </>
             )
         }
@@ -130,7 +132,7 @@ export default function ProductList() {
                 <>
                     <ProductCategoryTitle categories={categories}
                         message={`В тази категория има ${products.length} ${products.length > 1 ? 'продукта' : 'продукт'}!`} />
-                        <CarsAndAccessoriesCard products={products}/>
+                    <CarsAndAccessoriesCard products={products} />
                 </>
             )
         }
@@ -139,7 +141,7 @@ export default function ProductList() {
                 <>
                     <ProductCategoryTitle categories={categories}
                         message={`В тази категория има ${products.length} ${products.length > 1 ? 'продукта' : 'продукт'}!`} />
-                        <OthersCard products={products}/>
+                    <OthersCard products={products} />
                 </>
             )
         }

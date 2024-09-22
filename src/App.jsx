@@ -24,6 +24,7 @@ import CreateProduct from './components/Administration/CreateProduct/CreateProdu
 import GoldConditionsList from './components/Administration/GoldConditionsList/GoldConditionsList'
 import CreateGoldCondition from './components/Administration/CreateGoldCondition/CreateGoldCondition'
 import EditGoldPrice from './components/Administration/EditGoldPrice/EditGoldPrice'
+import ProductDetails from './components/ProductDetails/ProductDetails'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "bootstrap-icons/font/bootstrap-icons.css"
@@ -43,6 +44,7 @@ function App() {
               <Routes>
                 <Route path={Path.Home} element={<Home />} />
                 <Route path={Path.CategoriesProducts} element={<ProductList />} />
+                <Route path={Path.ProductsDetails} element={<ProductDetails />} />
                 <Route path={Path.AdministrationHome} element={<Dashboard />} />
                 <Route path={Path.AdministrationCategoriesAll} element={<CategoriesList />} />
                 <Route path={Path.AdministrationCategoriesEdit} element={<EditCategory />} />
