@@ -16,7 +16,7 @@ export default function TechniqueCard({ products }) {
                             <Card.Body>
                                 <Card.Title>💵 Цена: {p?.price?.toFixed(2)}лв.</Card.Title>
                                 <Card.Title>🛒 Вещ: {p?.title}</Card.Title>
-                                <Card.Title>📜 Описание: {p?.description.length > 20
+                                <Card.Title>📜 Описание: {p?.description?.length > 20
                                     ? (p?.description.substring(0, 15) + '...')
                                     : p.description}</Card.Title>
                                 <DetailsButton id={p._id} />

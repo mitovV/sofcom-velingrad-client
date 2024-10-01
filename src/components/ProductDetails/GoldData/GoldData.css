@@ -1,0 +1,21 @@
+.product-info-wrapper h2 {
+    color: #7eed24;
+}
+
+.product-info-wrapper {
+    border: 1px solid #C5FF95;
+    border-radius: 20px;
+}
+
+.product-heading-wrapper {
+    margin-top: 150px;
+}
+
+@media only screen and (max-width: 768px) {
+    .product-info-wrapper {
+        margin-top: 15px;
+    }
+    .product-heading-wrapper {
+        margin-top: 15px;
+    }
+}

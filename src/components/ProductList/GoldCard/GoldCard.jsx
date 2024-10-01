@@ -19,7 +19,7 @@ export default function GoldCard({ products, categories }) {
                                 <Card.Title>💎 Карати: {p?.goldCarat?.carat}</Card.Title>
                                 {['Дамски', 'Мъжки', 'Детски']
                                     .includes(categories[categories.length - 1].name) ?
-                                    <Card.Title>💍Размер: {p?.size?.size}</Card.Title> : ''}
+                                    <Card.Title>💍 Размер: {p?.size?.size}</Card.Title> : ''}
                                 <DetailsButton id={p._id}/>
                             </Card.Body>
                            <CardFooter data={p.createdOn}/>
